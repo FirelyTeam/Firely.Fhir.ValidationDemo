@@ -7,6 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -92,12 +93,11 @@ namespace Furore.Fhir.ValidationDemo
 
         private void btnValidate_Click(object sender, EventArgs e)
         {
-            // The validator generates an OperationOutcome as output;
-            OperationOutcome result = null;
+            string output;
 
             if (String.IsNullOrEmpty(txtInstanceXml.Text))
             {
-                result = new OperationOutcome();
+                output = "Please, supply an Xml FHIR instance in the textbox above";
             }
             else
             {
@@ -108,23 +108,29 @@ namespace Furore.Fhir.ValidationDemo
                 settings.EnableXsdValidation = chkXsdValidation.Checked;
                 settings.Trace = chkShowTraceInfo.Checked;
                 settings.ResourceResolver = this.CombinedSource;
+                settings.GenerateSnapshot = true;
+                settings.SkipConstraintValidation = true;
 
                 // This is a really cheap operation, so we can 
                 var validator = new Validator(settings);
+
+                // In this case we use an XmlReader as input, but the validator has
+                // overloads for using POCO's too
                 var reader = SerializationUtil.XmlReaderFromXmlText(txtInstanceXml.Text);
-                result = validator.Validate(reader);
+
+                Stopwatch sw = new Stopwatch();
+                sw.Start();
+                // The validator generates an OperationOutcome as output;
+                OperationOutcome result = validator.Validate(reader);
+                sw.Stop();
+
+                output = result.ToString();
+                output += Environment.NewLine;
+                output += Environment.NewLine;
+                output += $"Validation run took {sw.ElapsedMilliseconds} miliseconds";
             }
 
-            if(result.Success)
-            {
-                txtOutcome.ForeColor = txtInstanceXml.ForeColor;
-                txtOutcome.Text = result.ToString();
-            }
-            else
-            {
-                txtOutcome.ForeColor = Color.Red;
-                txtOutcome.Text = result.ToString();
-            }
+            txtOutcome.Text = output;
         }
     }
 }

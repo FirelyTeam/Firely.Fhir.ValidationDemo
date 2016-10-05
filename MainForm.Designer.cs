@@ -32,16 +32,16 @@
             this.label2 = new System.Windows.Forms.Label();
             this.btnReload = new System.Windows.Forms.Button();
             this.btnOpenProfileDir = new System.Windows.Forms.Button();
+            this.txtProfileDirectory = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.chkShowTraceInfo = new System.Windows.Forms.CheckBox();
             this.chkXsdValidation = new System.Windows.Forms.CheckBox();
             this.btnValidate = new System.Windows.Forms.Button();
-            this.txtInstanceXml = new System.Windows.Forms.TextBox();
+            this.txtInstanceXml = new System.Windows.Forms.RichTextBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.txtOutcome = new System.Windows.Forms.TextBox();
             this.folderBrowserDialog = new System.Windows.Forms.FolderBrowserDialog();
-            this.txtProfileDirectory = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -71,7 +71,7 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(617, 33);
             this.label2.TabIndex = 4;
-            this.label2.Text = "For performance reasons, profiles in this directory will not be re-scanned at eac" +
+            this.label2.Text = "For performance reasons, profiles in this directory will not be re-scanned on eac" +
     "h validation run. Press \'Reload\' to refresh the cached information the validator" +
     " may have.";
             // 
@@ -95,6 +95,18 @@
             this.btnOpenProfileDir.Text = "Browse...";
             this.btnOpenProfileDir.UseVisualStyleBackColor = true;
             this.btnOpenProfileDir.Click += new System.EventHandler(this.btnOpenProfileDir_Click);
+            // 
+            // txtProfileDirectory
+            // 
+            this.txtProfileDirectory.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtProfileDirectory.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::Furore.Fhir.ValidationDemo.Properties.Settings.Default, "ProfileSourceDirectory", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.txtProfileDirectory.Location = new System.Drawing.Point(6, 42);
+            this.txtProfileDirectory.Name = "txtProfileDirectory";
+            this.txtProfileDirectory.Size = new System.Drawing.Size(536, 20);
+            this.txtProfileDirectory.TabIndex = 1;
+            this.txtProfileDirectory.Text = global::Furore.Fhir.ValidationDemo.Properties.Settings.Default.ProfileSourceDirectory;
+            this.txtProfileDirectory.TextChanged += new System.EventHandler(this.txtProfileDirectory_TextChanged);
             // 
             // label1
             // 
@@ -157,7 +169,6 @@
             // 
             // txtInstanceXml
             // 
-            this.txtInstanceXml.AcceptsReturn = true;
             this.txtInstanceXml.AcceptsTab = true;
             this.txtInstanceXml.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
@@ -200,20 +211,8 @@
             // 
             this.folderBrowserDialog.Description = "Select a folder where this application can find your profiles to validate against" +
     ".";
-            this.folderBrowserDialog.RootFolder = System.Environment.SpecialFolder.MyDocuments;
+            this.folderBrowserDialog.RootFolder = System.Environment.SpecialFolder.MyComputer;
             this.folderBrowserDialog.ShowNewFolderButton = false;
-            // 
-            // txtProfileDirectory
-            // 
-            this.txtProfileDirectory.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtProfileDirectory.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::Furore.Fhir.ValidationDemo.Properties.Settings.Default, "ProfileSourceDirectory", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.txtProfileDirectory.Location = new System.Drawing.Point(6, 42);
-            this.txtProfileDirectory.Name = "txtProfileDirectory";
-            this.txtProfileDirectory.Size = new System.Drawing.Size(536, 20);
-            this.txtProfileDirectory.TabIndex = 1;
-            this.txtProfileDirectory.Text = global::Furore.Fhir.ValidationDemo.Properties.Settings.Default.ProfileSourceDirectory;
-            this.txtProfileDirectory.TextChanged += new System.EventHandler(this.txtProfileDirectory_TextChanged);
             // 
             // MainForm
             // 
@@ -248,7 +247,7 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.CheckBox chkXsdValidation;
         private System.Windows.Forms.Button btnValidate;
-        private System.Windows.Forms.TextBox txtInstanceXml;
+        private System.Windows.Forms.RichTextBox txtInstanceXml;
         private System.Windows.Forms.CheckBox chkShowTraceInfo;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.TextBox txtOutcome;

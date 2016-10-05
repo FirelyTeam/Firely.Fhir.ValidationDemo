@@ -84,11 +84,11 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\fhir-net-api\src\Hl7.Fhir.Core\Hl7.Fhir.Core.Net45.csproj">
+    <ProjectReference Include="..\fhir-net-api\src\Hl7.Fhir.Core\Hl7.Fhir.Core.Net45.csproj">
       <Project>{92cc9186-0a21-4e06-b11f-907584fbfd81}</Project>
       <Name>Hl7.Fhir.Core.Net45</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\fhir-net-api\src\Hl7.Fhir.Specification\Hl7.Fhir.Specification.Net45.csproj">
+    <ProjectReference Include="..\fhir-net-api\src\Hl7.Fhir.Specification\Hl7.Fhir.Specification.Net45.csproj">
       <Project>{34A3B072-5ABC-4F7C-B7E8-0AB67C58CC61}</Project>
       <Name>Hl7.Fhir.Specification.Net45</Name>
     </ProjectReference>
