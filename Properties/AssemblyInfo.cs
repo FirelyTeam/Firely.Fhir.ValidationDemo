@@ -6,11 +6,11 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("Furore.Fhir.ValidationDemo")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("A demo windows app to demonstrate .NET HL7 FHIR Profile validation")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("Furore, Amsterdam")]
 [assembly: AssemblyProduct("Furore.Fhir.ValidationDemo")]
-[assembly: AssemblyCopyright("Copyright ©  2016")]
+[assembly: AssemblyCopyright("Copyright © 2016")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
