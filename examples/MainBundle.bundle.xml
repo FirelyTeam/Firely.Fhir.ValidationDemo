@@ -19,6 +19,10 @@
                         <system value="http://loinc.org"/>
                         <code value="18842-5"/>
                     </coding>
+                    <coding>
+                        <system value="http://loinc.org"/>
+                        <code value="8716-3"/>
+                    </coding>
                 </type>
                 <title value="A document with observations"/>
                 <status value="final"/>
