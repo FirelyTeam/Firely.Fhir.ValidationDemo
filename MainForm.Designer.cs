@@ -42,6 +42,7 @@
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.txtOutcome = new System.Windows.Forms.TextBox();
             this.folderBrowserDialog = new System.Windows.Forms.FolderBrowserDialog();
+            this.chkDisableFP = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -123,6 +124,7 @@
             this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox2.Controls.Add(this.chkDisableFP);
             this.groupBox2.Controls.Add(this.chkShowTraceInfo);
             this.groupBox2.Controls.Add(this.chkXsdValidation);
             this.groupBox2.Controls.Add(this.btnValidate);
@@ -138,22 +140,22 @@
             // 
             this.chkShowTraceInfo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.chkShowTraceInfo.AutoSize = true;
-            this.chkShowTraceInfo.Location = new System.Drawing.Point(258, 248);
+            this.chkShowTraceInfo.Location = new System.Drawing.Point(140, 249);
             this.chkShowTraceInfo.Name = "chkShowTraceInfo";
-            this.chkShowTraceInfo.Size = new System.Drawing.Size(181, 17);
+            this.chkShowTraceInfo.Size = new System.Drawing.Size(142, 17);
             this.chkShowTraceInfo.TabIndex = 7;
-            this.chkShowTraceInfo.Text = "Include trace information in result";
+            this.chkShowTraceInfo.Text = "Include trace information";
             this.chkShowTraceInfo.UseVisualStyleBackColor = true;
             // 
             // chkXsdValidation
             // 
             this.chkXsdValidation.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.chkXsdValidation.AutoSize = true;
-            this.chkXsdValidation.Location = new System.Drawing.Point(482, 247);
+            this.chkXsdValidation.Location = new System.Drawing.Point(302, 249);
             this.chkXsdValidation.Name = "chkXsdValidation";
-            this.chkXsdValidation.Size = new System.Drawing.Size(135, 17);
+            this.chkXsdValidation.Size = new System.Drawing.Size(115, 17);
             this.chkXsdValidation.TabIndex = 6;
-            this.chkXsdValidation.Text = "Also use Xsd validation";
+            this.chkXsdValidation.Text = "Run Xsd validation";
             this.chkXsdValidation.UseVisualStyleBackColor = true;
             // 
             // btnValidate
@@ -175,7 +177,6 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtInstanceXml.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::Furore.Fhir.ValidationDemo.Properties.Settings.Default, "InstanceXml", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.txtInstanceXml.Location = new System.Drawing.Point(9, 23);
-            this.txtInstanceXml.Multiline = true;
             this.txtInstanceXml.Name = "txtInstanceXml";
             this.txtInstanceXml.Size = new System.Drawing.Size(608, 208);
             this.txtInstanceXml.TabIndex = 0;
@@ -213,6 +214,17 @@
     ".";
             this.folderBrowserDialog.RootFolder = System.Environment.SpecialFolder.MyComputer;
             this.folderBrowserDialog.ShowNewFolderButton = false;
+            // 
+            // chkDisableFP
+            // 
+            this.chkDisableFP.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.chkDisableFP.AutoSize = true;
+            this.chkDisableFP.Location = new System.Drawing.Point(437, 249);
+            this.chkDisableFP.Name = "chkDisableFP";
+            this.chkDisableFP.Size = new System.Drawing.Size(115, 17);
+            this.chkDisableFP.TabIndex = 8;
+            this.chkDisableFP.Text = "Disable FP checks";
+            this.chkDisableFP.UseVisualStyleBackColor = true;
             // 
             // MainForm
             // 
@@ -252,6 +264,7 @@
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.TextBox txtOutcome;
         private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog;
+        private System.Windows.Forms.CheckBox chkDisableFP;
     }
 }
 

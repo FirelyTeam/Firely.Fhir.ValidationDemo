@@ -1,5 +1,7 @@
 ﻿using Furore.Fhir.ValidationDemo.Properties;
+using Hl7.Fhir.FluentPath;
 using Hl7.Fhir.Model;
+using Hl7.Fhir.Rest;
 using Hl7.Fhir.Serialization;
 using Hl7.Fhir.Specification.Source;
 using Hl7.Fhir.Validation;
@@ -95,6 +97,8 @@ namespace Furore.Fhir.ValidationDemo
         {
             string output;
 
+            Settings.Default.Save();
+
             if (String.IsNullOrEmpty(txtInstanceXml.Text))
             {
                 output = "Please, supply an Xml FHIR instance in the textbox above";
@@ -108,11 +112,13 @@ namespace Furore.Fhir.ValidationDemo
                 settings.EnableXsdValidation = chkXsdValidation.Checked;
                 settings.Trace = chkShowTraceInfo.Checked;
                 settings.ResourceResolver = this.CombinedSource;
+                settings.SkipConstraintValidation = chkDisableFP.Checked;
+                settings.ResolveExteralReferences = true;
                 settings.GenerateSnapshot = true;
-                settings.SkipConstraintValidation = true;
 
-                // This is a really cheap operation, so we can 
+                // This is a really cheap operation, so we can safely create a new one when we need
                 var validator = new Validator(settings);
+                validator.OnExternalResolutionNeeded += onGetExampleResource;
 
                 // In this case we use an XmlReader as input, but the validator has
                 // overloads for using POCO's too
@@ -131,6 +137,39 @@ namespace Furore.Fhir.ValidationDemo
             }
 
             txtOutcome.Text = output;
+        }
+
+        private void onGetExampleResource(object sender, OnResolveResourceReferenceEventArgs e)
+        {
+            var referenceToResolve = e.Reference;
+
+            // Now, for our examples we've used the convention that the file can be found in the
+            // example directory, with the name <id>.<type>.xml, so let's try to get that file.
+            ResourceIdentity reference = new ResourceIdentity(referenceToResolve);
+            var filename = $"{reference.Id}.{reference.ResourceType}.xml";
+            var path = Path.Combine(txtProfileDirectory.Text, filename);
+
+            if (File.Exists(path))
+            {
+                var xml = File.ReadAllText(path);
+
+                // Note, this will throw if the file is not really FHIR xml
+                var poco = (new FhirXmlParser()).Parse<Resource>(xml);
+
+                // The validator does not depend on the .NET API POCO's, instead
+                // it uses an abstraction called IElementNavigator that can represent
+                // the contents of a FHIR resource direcly from a file, from a POCO, 
+                // from a database, whatever is necessary. It's also works cross-versions
+                // i.e. DSTU2/STU3/release 4 etcetera.
+                // For now, we have just implemented this interface for POCO's so, let's
+                // create one.
+                e.Result = new PocoNavigator(poco);
+            }
+            else
+            {
+                // Unsuccessful
+                e.Result = null;
+            }
         }
     }
 }
