@@ -35,6 +35,7 @@
             this.txtProfileDirectory = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.chkDisableFP = new System.Windows.Forms.CheckBox();
             this.chkShowTraceInfo = new System.Windows.Forms.CheckBox();
             this.chkXsdValidation = new System.Windows.Forms.CheckBox();
             this.btnValidate = new System.Windows.Forms.Button();
@@ -42,7 +43,6 @@
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.txtOutcome = new System.Windows.Forms.TextBox();
             this.folderBrowserDialog = new System.Windows.Forms.FolderBrowserDialog();
-            this.chkDisableFP = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -136,6 +136,17 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Instance (xml)";
             // 
+            // chkDisableFP
+            // 
+            this.chkDisableFP.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.chkDisableFP.AutoSize = true;
+            this.chkDisableFP.Location = new System.Drawing.Point(437, 249);
+            this.chkDisableFP.Name = "chkDisableFP";
+            this.chkDisableFP.Size = new System.Drawing.Size(115, 17);
+            this.chkDisableFP.TabIndex = 8;
+            this.chkDisableFP.Text = "Disable FP checks";
+            this.chkDisableFP.UseVisualStyleBackColor = true;
+            // 
             // chkShowTraceInfo
             // 
             this.chkShowTraceInfo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
@@ -215,17 +226,6 @@
             this.folderBrowserDialog.RootFolder = System.Environment.SpecialFolder.MyComputer;
             this.folderBrowserDialog.ShowNewFolderButton = false;
             // 
-            // chkDisableFP
-            // 
-            this.chkDisableFP.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.chkDisableFP.AutoSize = true;
-            this.chkDisableFP.Location = new System.Drawing.Point(437, 249);
-            this.chkDisableFP.Name = "chkDisableFP";
-            this.chkDisableFP.Size = new System.Drawing.Size(115, 17);
-            this.chkDisableFP.TabIndex = 8;
-            this.chkDisableFP.Text = "Disable FP checks";
-            this.chkDisableFP.UseVisualStyleBackColor = true;
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -235,7 +235,7 @@
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Name = "MainForm";
-            this.Text = ".NET Profile Validation Demo 0.1";
+            this.Text = ".NET Profile Validation Demo 1.1";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MainForm_FormClosed);
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.groupBox1.ResumeLayout(false);
