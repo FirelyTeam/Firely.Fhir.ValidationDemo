@@ -36,6 +36,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.chkDisableFP = new System.Windows.Forms.CheckBox();
+            this.lblTerminology = new System.Windows.Forms.Label();
+            this.cboTerminology = new System.Windows.Forms.ComboBox();
             this.chkShowTraceInfo = new System.Windows.Forms.CheckBox();
             this.chkXsdValidation = new System.Windows.Forms.CheckBox();
             this.btnValidate = new System.Windows.Forms.Button();
@@ -59,7 +61,7 @@
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(629, 147);
+            this.groupBox1.Size = new System.Drawing.Size(769, 147);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Profile source directory";
@@ -70,9 +72,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.Location = new System.Drawing.Point(6, 78);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(617, 33);
-            this.label2.TabIndex = 4;
-            this.label2.Text = "For performance reasons, profiles in this directory will not be re-scanned on eac" +
+            this.label2.Size = new System.Drawing.Size(757, 33);
+            this.label2.TabIndex = 3;
+            this.label2.Text = "For performance reasons, profiles in this directory will not be re-scanned at eac" +
     "h validation run. Press \'Reload\' to refresh the cached information the validator" +
     " may have.";
             // 
@@ -81,19 +83,19 @@
             this.btnReload.Location = new System.Drawing.Point(9, 112);
             this.btnReload.Name = "btnReload";
             this.btnReload.Size = new System.Drawing.Size(75, 23);
-            this.btnReload.TabIndex = 3;
-            this.btnReload.Text = "Reload";
+            this.btnReload.TabIndex = 4;
+            this.btnReload.Text = "&Reload";
             this.btnReload.UseVisualStyleBackColor = true;
             this.btnReload.Click += new System.EventHandler(this.btnReload_Click);
             // 
             // btnOpenProfileDir
             // 
             this.btnOpenProfileDir.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnOpenProfileDir.Location = new System.Drawing.Point(548, 39);
+            this.btnOpenProfileDir.Location = new System.Drawing.Point(688, 39);
             this.btnOpenProfileDir.Name = "btnOpenProfileDir";
             this.btnOpenProfileDir.Size = new System.Drawing.Size(75, 23);
             this.btnOpenProfileDir.TabIndex = 2;
-            this.btnOpenProfileDir.Text = "Browse...";
+            this.btnOpenProfileDir.Text = "&Browse...";
             this.btnOpenProfileDir.UseVisualStyleBackColor = true;
             this.btnOpenProfileDir.Click += new System.EventHandler(this.btnOpenProfileDir_Click);
             // 
@@ -104,7 +106,7 @@
             this.txtProfileDirectory.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::Furore.Fhir.ValidationDemo.Properties.Settings.Default, "ProfileSourceDirectory", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.txtProfileDirectory.Location = new System.Drawing.Point(6, 42);
             this.txtProfileDirectory.Name = "txtProfileDirectory";
-            this.txtProfileDirectory.Size = new System.Drawing.Size(536, 20);
+            this.txtProfileDirectory.Size = new System.Drawing.Size(676, 20);
             this.txtProfileDirectory.TabIndex = 1;
             this.txtProfileDirectory.Text = global::Furore.Fhir.ValidationDemo.Properties.Settings.Default.ProfileSourceDirectory;
             this.txtProfileDirectory.TextChanged += new System.EventHandler(this.txtProfileDirectory_TextChanged);
@@ -125,58 +127,84 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox2.Controls.Add(this.chkDisableFP);
+            this.groupBox2.Controls.Add(this.lblTerminology);
+            this.groupBox2.Controls.Add(this.cboTerminology);
             this.groupBox2.Controls.Add(this.chkShowTraceInfo);
             this.groupBox2.Controls.Add(this.chkXsdValidation);
             this.groupBox2.Controls.Add(this.btnValidate);
             this.groupBox2.Controls.Add(this.txtInstanceXml);
             this.groupBox2.Location = new System.Drawing.Point(13, 175);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(627, 281);
+            this.groupBox2.Size = new System.Drawing.Size(767, 281);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Instance (xml)";
+            this.groupBox2.Text = "Xml Instance";
             // 
             // chkDisableFP
             // 
-            this.chkDisableFP.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.chkDisableFP.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.chkDisableFP.AutoSize = true;
-            this.chkDisableFP.Location = new System.Drawing.Point(437, 249);
+            this.chkDisableFP.Location = new System.Drawing.Point(237, 213);
             this.chkDisableFP.Name = "chkDisableFP";
-            this.chkDisableFP.Size = new System.Drawing.Size(115, 17);
-            this.chkDisableFP.TabIndex = 8;
-            this.chkDisableFP.Text = "Disable FP checks";
+            this.chkDisableFP.Size = new System.Drawing.Size(141, 17);
+            this.chkDisableFP.TabIndex = 3;
+            this.chkDisableFP.Text = "Disable &FirePath checks";
             this.chkDisableFP.UseVisualStyleBackColor = true;
+            // 
+            // lblTerminology
+            // 
+            this.lblTerminology.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblTerminology.AutoSize = true;
+            this.lblTerminology.Location = new System.Drawing.Point(564, 215);
+            this.lblTerminology.Name = "lblTerminology";
+            this.lblTerminology.Size = new System.Drawing.Size(67, 13);
+            this.lblTerminology.TabIndex = 4;
+            this.lblTerminology.Text = "&Terminology:";
+            // 
+            // cboTerminology
+            // 
+            this.cboTerminology.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.cboTerminology.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboTerminology.FormattingEnabled = true;
+            this.cboTerminology.Items.AddRange(new object[] {
+            "None",
+            "Local",
+            "Grahame"});
+            this.cboTerminology.Location = new System.Drawing.Point(637, 211);
+            this.cboTerminology.Name = "cboTerminology";
+            this.cboTerminology.Size = new System.Drawing.Size(118, 21);
+            this.cboTerminology.TabIndex = 5;
             // 
             // chkShowTraceInfo
             // 
-            this.chkShowTraceInfo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.chkShowTraceInfo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.chkShowTraceInfo.AutoSize = true;
-            this.chkShowTraceInfo.Location = new System.Drawing.Point(140, 249);
+            this.chkShowTraceInfo.Location = new System.Drawing.Point(9, 213);
             this.chkShowTraceInfo.Name = "chkShowTraceInfo";
-            this.chkShowTraceInfo.Size = new System.Drawing.Size(142, 17);
-            this.chkShowTraceInfo.TabIndex = 7;
-            this.chkShowTraceInfo.Text = "Include trace information";
+            this.chkShowTraceInfo.Size = new System.Drawing.Size(108, 17);
+            this.chkShowTraceInfo.TabIndex = 1;
+            this.chkShowTraceInfo.Text = "&Trace information";
             this.chkShowTraceInfo.UseVisualStyleBackColor = true;
             // 
             // chkXsdValidation
             // 
-            this.chkXsdValidation.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.chkXsdValidation.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.chkXsdValidation.AutoSize = true;
-            this.chkXsdValidation.Location = new System.Drawing.Point(302, 249);
+            this.chkXsdValidation.Location = new System.Drawing.Point(125, 213);
             this.chkXsdValidation.Name = "chkXsdValidation";
-            this.chkXsdValidation.Size = new System.Drawing.Size(115, 17);
-            this.chkXsdValidation.TabIndex = 6;
-            this.chkXsdValidation.Text = "Run Xsd validation";
+            this.chkXsdValidation.Size = new System.Drawing.Size(92, 17);
+            this.chkXsdValidation.TabIndex = 2;
+            this.chkXsdValidation.Text = "&Xsd validation";
             this.chkXsdValidation.UseVisualStyleBackColor = true;
             // 
             // btnValidate
             // 
             this.btnValidate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnValidate.Location = new System.Drawing.Point(9, 243);
+            this.btnValidate.Location = new System.Drawing.Point(9, 244);
             this.btnValidate.Name = "btnValidate";
             this.btnValidate.Size = new System.Drawing.Size(75, 23);
-            this.btnValidate.TabIndex = 5;
-            this.btnValidate.Text = "Validate!";
+            this.btnValidate.TabIndex = 6;
+            this.btnValidate.Text = "&Validate!";
             this.btnValidate.UseVisualStyleBackColor = true;
             this.btnValidate.Click += new System.EventHandler(this.btnValidate_Click);
             // 
@@ -189,7 +217,7 @@
             this.txtInstanceXml.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::Furore.Fhir.ValidationDemo.Properties.Settings.Default, "InstanceXml", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.txtInstanceXml.Location = new System.Drawing.Point(9, 23);
             this.txtInstanceXml.Name = "txtInstanceXml";
-            this.txtInstanceXml.Size = new System.Drawing.Size(608, 208);
+            this.txtInstanceXml.Size = new System.Drawing.Size(748, 179);
             this.txtInstanceXml.TabIndex = 0;
             this.txtInstanceXml.Text = global::Furore.Fhir.ValidationDemo.Properties.Settings.Default.InstanceXml;
             // 
@@ -200,7 +228,7 @@
             this.groupBox3.Controls.Add(this.txtOutcome);
             this.groupBox3.Location = new System.Drawing.Point(12, 462);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(627, 209);
+            this.groupBox3.Size = new System.Drawing.Size(767, 209);
             this.groupBox3.TabIndex = 2;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Last Validation results";
@@ -216,7 +244,7 @@
             this.txtOutcome.Name = "txtOutcome";
             this.txtOutcome.ReadOnly = true;
             this.txtOutcome.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.txtOutcome.Size = new System.Drawing.Size(608, 172);
+            this.txtOutcome.Size = new System.Drawing.Size(748, 172);
             this.txtOutcome.TabIndex = 0;
             // 
             // folderBrowserDialog
@@ -228,9 +256,10 @@
             // 
             // MainForm
             // 
+            this.AcceptButton = this.btnValidate;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(653, 681);
+            this.ClientSize = new System.Drawing.Size(793, 681);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -264,6 +293,8 @@
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.TextBox txtOutcome;
         private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog;
+        private System.Windows.Forms.ComboBox cboTerminology;
+        private System.Windows.Forms.Label lblTerminology;
         private System.Windows.Forms.CheckBox chkDisableFP;
     }
 }

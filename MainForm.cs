@@ -4,9 +4,12 @@ using Hl7.Fhir.Model;
 using Hl7.Fhir.Rest;
 using Hl7.Fhir.Serialization;
 using Hl7.Fhir.Specification.Source;
+using Hl7.Fhir.Specification.Terminology;
+using Hl7.Fhir.Utility;
 using Hl7.Fhir.Validation;
 using System;
 using System.Diagnostics;
+using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
 
@@ -22,12 +25,14 @@ namespace Furore.Fhir.ValidationDemo
             // We create a source that takes its contents from a ZIP file (in this case the default 'specification.zip'). We decorate that source by encapsulating
             // it in a CachedResolver, which speeds up access by caching conformance resources once we got them from the large files in the ZIP.
             CoreSource = new CachedResolver(ZipSource.CreateValidationSource());
+
+            // [WMR 20170414] NEW
+            cboTerminology.SelectedIndex = 0;
         }
 
         internal IResourceResolver DirectorySource;
         internal IResourceResolver CoreSource;
         internal IResourceResolver CombinedSource;
-
 
         private void refreshProfileSource()
         {
@@ -88,48 +93,74 @@ namespace Furore.Fhir.ValidationDemo
 
         private void btnValidate_Click(object sender, EventArgs e)
         {
-            string output;
+            // [WMR 20170414] NEW - Clear output
+            txtOutcome.Text = null;
+            Cursor = Cursors.WaitCursor;
+            Refresh();
 
-            Settings.Default.Save();
-
-            if (String.IsNullOrEmpty(txtInstanceXml.Text))
+            string output = null;
+            try
             {
-                output = "Please, supply an Xml FHIR instance in the textbox above";
+                Settings.Default.Save();
+
+                if (String.IsNullOrEmpty(txtInstanceXml.Text))
+                {
+                    output = "Please provide an Xml FHIR instance in the textbox above";
+                }
+                else
+                {
+                    // Configure the validator based on the user's settings
+                    // This includes a reference to the resolver that we have constructed in previous methods
+                    // and which helps the validator to look for profiles
+                    ValidationSettings settings = ValidationSettings.Default;
+                    settings.EnableXsdValidation = chkXsdValidation.Checked;
+                    settings.Trace = chkShowTraceInfo.Checked;
+                    settings.ResourceResolver = this.CombinedSource;
+                    settings.SkipConstraintValidation = chkDisableFP.Checked;
+                    settings.ResolveExteralReferences = true;
+                    settings.GenerateSnapshot = true;
+
+                    // [WMR 20170414] NEW
+                    switch (cboTerminology.SelectedIndex)
+                    {
+                        case 0: // None
+                            break;
+                        case 1: // Local
+                            settings.TerminologyService = new LocalTerminologyServer(CombinedSource);
+                            break;
+                        case 2: // Grahame
+                            var client = new FhirClient("http://fhir3.healthintersections.com.au/open");
+                            settings.TerminologyService = new ExternalTerminologyService(client);
+                            break;
+                    }
+
+                    // This is a really cheap operation, so we can safely create a new one when we need
+                    var validator = new Validator(settings);
+                    validator.OnExternalResolutionNeeded += onGetExampleResource;
+
+                    // In this case we use an XmlReader as input, but the validator has
+                    // overloads for using POCO's too
+                    var reader = SerializationUtil.XmlReaderFromXmlText(txtInstanceXml.Text);
+
+                    Stopwatch sw = new Stopwatch();
+                    sw.Start();
+                    // The validator generates an OperationOutcome as output;
+                    OperationOutcome result = validator.Validate(reader);
+                    sw.Stop();
+
+                    output = result.ToString() + $"\r\n\r\nValidation run took {sw.ElapsedMilliseconds} miliseconds";
+                }
+
             }
-            else
+            catch (Exception ex)
             {
-                // Configure the validator based on the user's settings
-                // This includes a reference to the resolver that we have constructed in previous methods
-                // and which helps the validator to look for profiles
-                ValidationSettings settings = ValidationSettings.Default;
-                settings.EnableXsdValidation = chkXsdValidation.Checked;
-                settings.Trace = chkShowTraceInfo.Checked;
-                settings.ResourceResolver = this.CombinedSource;
-                settings.SkipConstraintValidation = chkDisableFP.Checked;
-                settings.ResolveExteralReferences = true;
-                settings.GenerateSnapshot = true;
-
-                // This is a really cheap operation, so we can safely create a new one when we need
-                var validator = new Validator(settings);
-                validator.OnExternalResolutionNeeded += onGetExampleResource;
-
-                // In this case we use an XmlReader as input, but the validator has
-                // overloads for using POCO's too
-                var reader = SerializationUtil.XmlReaderFromXmlText(txtInstanceXml.Text);
-
-                Stopwatch sw = new Stopwatch();
-                sw.Start();
-                // The validator generates an OperationOutcome as output;
-                OperationOutcome result = validator.Validate(reader);
-                sw.Stop();
-
-                output = result.ToString();
-                output += Environment.NewLine;
-                output += Environment.NewLine;
-                output += $"Validation run took {sw.ElapsedMilliseconds} miliseconds";
+                output = $"{ex.GetType().Name}: {ex.Message}";
             }
-
-            txtOutcome.Text = output;
+            finally
+            {
+                Cursor = Cursors.Default;
+                txtOutcome.Text = output;
+            }
         }
 
         private void onGetExampleResource(object sender, OnResolveResourceReferenceEventArgs e)
@@ -163,6 +194,7 @@ namespace Furore.Fhir.ValidationDemo
                 // Unsuccessful
                 e.Result = null;
             }
+
         }
     }
 }
