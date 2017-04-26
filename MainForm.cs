@@ -27,7 +27,7 @@ namespace Furore.Fhir.ValidationDemo
             CoreSource = new CachedResolver(ZipSource.CreateValidationSource());
 
             // [WMR 20170414] NEW
-            cboTerminology.SelectedIndex = 0;
+            cboTerminology.SelectedIndex = 1;
         }
 
         internal IResourceResolver DirectorySource;
