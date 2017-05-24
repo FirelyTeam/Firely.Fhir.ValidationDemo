@@ -144,7 +144,7 @@
             this.groupBox2.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(6, 6, 6, 6);
-            this.groupBox2.Size = new System.Drawing.Size(1534, 540);
+            this.groupBox2.Size = new System.Drawing.Size(1534, 542);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Xml Instance";
@@ -153,7 +153,7 @@
             // 
             this.chkDisableFP.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.chkDisableFP.AutoSize = true;
-            this.chkDisableFP.Location = new System.Drawing.Point(474, 414);
+            this.chkDisableFP.Location = new System.Drawing.Point(474, 417);
             this.chkDisableFP.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.chkDisableFP.Name = "chkDisableFP";
             this.chkDisableFP.Size = new System.Drawing.Size(264, 29);
@@ -165,7 +165,7 @@
             // 
             this.lblTerminology.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.lblTerminology.AutoSize = true;
-            this.lblTerminology.Location = new System.Drawing.Point(1128, 413);
+            this.lblTerminology.Location = new System.Drawing.Point(1128, 415);
             this.lblTerminology.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lblTerminology.Name = "lblTerminology";
             this.lblTerminology.Size = new System.Drawing.Size(136, 25);
@@ -181,7 +181,7 @@
             "None",
             "Local",
             "Grahame"});
-            this.cboTerminology.Location = new System.Drawing.Point(1274, 406);
+            this.cboTerminology.Location = new System.Drawing.Point(1274, 408);
             this.cboTerminology.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.cboTerminology.Name = "cboTerminology";
             this.cboTerminology.Size = new System.Drawing.Size(232, 33);
@@ -191,7 +191,7 @@
             // 
             this.chkShowTraceInfo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.chkShowTraceInfo.AutoSize = true;
-            this.chkShowTraceInfo.Location = new System.Drawing.Point(18, 414);
+            this.chkShowTraceInfo.Location = new System.Drawing.Point(18, 417);
             this.chkShowTraceInfo.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.chkShowTraceInfo.Name = "chkShowTraceInfo";
             this.chkShowTraceInfo.Size = new System.Drawing.Size(198, 29);
@@ -203,7 +203,7 @@
             // 
             this.chkXsdValidation.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.chkXsdValidation.AutoSize = true;
-            this.chkXsdValidation.Location = new System.Drawing.Point(250, 414);
+            this.chkXsdValidation.Location = new System.Drawing.Point(250, 417);
             this.chkXsdValidation.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.chkXsdValidation.Name = "chkXsdValidation";
             this.chkXsdValidation.Size = new System.Drawing.Size(166, 29);
@@ -214,7 +214,7 @@
             // btnValidate
             // 
             this.btnValidate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnValidate.Location = new System.Drawing.Point(18, 469);
+            this.btnValidate.Location = new System.Drawing.Point(18, 471);
             this.btnValidate.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.btnValidate.Name = "btnValidate";
             this.btnValidate.Size = new System.Drawing.Size(150, 44);
@@ -233,7 +233,7 @@
             this.txtInstanceXml.Location = new System.Drawing.Point(18, 44);
             this.txtInstanceXml.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.txtInstanceXml.Name = "txtInstanceXml";
-            this.txtInstanceXml.Size = new System.Drawing.Size(1492, 341);
+            this.txtInstanceXml.Size = new System.Drawing.Size(1492, 342);
             this.txtInstanceXml.TabIndex = 0;
             this.txtInstanceXml.Text = global::Furore.Fhir.ValidationDemo.Properties.Settings.Default.InstanceXml;
             // 
@@ -242,11 +242,11 @@
             this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox3.Controls.Add(this.txtOutcome);
-            this.groupBox3.Location = new System.Drawing.Point(24, 888);
+            this.groupBox3.Location = new System.Drawing.Point(24, 890);
             this.groupBox3.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Padding = new System.Windows.Forms.Padding(6, 6, 6, 6);
-            this.groupBox3.Size = new System.Drawing.Size(1534, 402);
+            this.groupBox3.Size = new System.Drawing.Size(1534, 287);
             this.groupBox3.TabIndex = 2;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Last Validation results";
@@ -263,7 +263,7 @@
             this.txtOutcome.Name = "txtOutcome";
             this.txtOutcome.ReadOnly = true;
             this.txtOutcome.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.txtOutcome.Size = new System.Drawing.Size(1492, 327);
+            this.txtOutcome.Size = new System.Drawing.Size(1492, 216);
             this.txtOutcome.TabIndex = 0;
             // 
             // folderBrowserDialog
@@ -284,7 +284,7 @@
             this.Controls.Add(this.groupBox1);
             this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.Name = "MainForm";
-            this.Text = ".NET Profile Validation Demo 1.3 (STU3)";
+            this.Text = ".NET Profile Validation Demo 1.3.2 (STU3)";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MainForm_FormClosed);
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.groupBox1.ResumeLayout(false);

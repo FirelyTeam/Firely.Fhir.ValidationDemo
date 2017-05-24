@@ -129,7 +129,7 @@ namespace Furore.Fhir.ValidationDemo
                             settings.TerminologyService = new LocalTerminologyServer(CombinedSource);
                             break;
                         case 2: // Grahame
-                            var client = new FhirClient("http://fhir3.healthintersections.com.au/open");
+                            var client = new FhirClient("http://tx.fhir.org/r3");
                             settings.TerminologyService = new ExternalTerminologyService(client);
                             break;
                     }
