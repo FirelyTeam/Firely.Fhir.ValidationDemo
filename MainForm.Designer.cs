@@ -59,11 +59,9 @@
             this.groupBox1.Controls.Add(this.btnOpenProfileDir);
             this.groupBox1.Controls.Add(this.txtProfileDirectory);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Location = new System.Drawing.Point(24, 23);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(6, 6, 6, 6);
-            this.groupBox1.Size = new System.Drawing.Size(1538, 283);
+            this.groupBox1.Size = new System.Drawing.Size(769, 147);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Profile source directory";
@@ -72,10 +70,9 @@
             // 
             this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.label2.Location = new System.Drawing.Point(12, 150);
-            this.label2.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.label2.Location = new System.Drawing.Point(6, 78);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(1514, 63);
+            this.label2.Size = new System.Drawing.Size(757, 33);
             this.label2.TabIndex = 3;
             this.label2.Text = "For performance reasons, profiles in this directory will not be re-scanned at eac" +
     "h validation run. Press \'Reload\' to refresh the cached information the validator" +
@@ -83,10 +80,9 @@
             // 
             // btnReload
             // 
-            this.btnReload.Location = new System.Drawing.Point(18, 215);
-            this.btnReload.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.btnReload.Location = new System.Drawing.Point(9, 112);
             this.btnReload.Name = "btnReload";
-            this.btnReload.Size = new System.Drawing.Size(150, 44);
+            this.btnReload.Size = new System.Drawing.Size(75, 23);
             this.btnReload.TabIndex = 4;
             this.btnReload.Text = "&Reload";
             this.btnReload.UseVisualStyleBackColor = true;
@@ -95,10 +91,9 @@
             // btnOpenProfileDir
             // 
             this.btnOpenProfileDir.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnOpenProfileDir.Location = new System.Drawing.Point(1376, 75);
-            this.btnOpenProfileDir.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.btnOpenProfileDir.Location = new System.Drawing.Point(688, 39);
             this.btnOpenProfileDir.Name = "btnOpenProfileDir";
-            this.btnOpenProfileDir.Size = new System.Drawing.Size(150, 44);
+            this.btnOpenProfileDir.Size = new System.Drawing.Size(75, 23);
             this.btnOpenProfileDir.TabIndex = 2;
             this.btnOpenProfileDir.Text = "&Browse...";
             this.btnOpenProfileDir.UseVisualStyleBackColor = true;
@@ -109,10 +104,9 @@
             this.txtProfileDirectory.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtProfileDirectory.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::Furore.Fhir.ValidationDemo.Properties.Settings.Default, "ProfileSourceDirectory", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.txtProfileDirectory.Location = new System.Drawing.Point(12, 81);
-            this.txtProfileDirectory.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.txtProfileDirectory.Location = new System.Drawing.Point(6, 42);
             this.txtProfileDirectory.Name = "txtProfileDirectory";
-            this.txtProfileDirectory.Size = new System.Drawing.Size(1348, 31);
+            this.txtProfileDirectory.Size = new System.Drawing.Size(676, 20);
             this.txtProfileDirectory.TabIndex = 1;
             this.txtProfileDirectory.Text = global::Furore.Fhir.ValidationDemo.Properties.Settings.Default.ProfileSourceDirectory;
             this.txtProfileDirectory.TextChanged += new System.EventHandler(this.txtProfileDirectory_TextChanged);
@@ -120,10 +114,9 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 50);
-            this.label1.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.label1.Location = new System.Drawing.Point(6, 26);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(860, 25);
+            this.label1.Size = new System.Drawing.Size(421, 13);
             this.label1.TabIndex = 0;
             this.label1.Text = "The validator will look for your profiles and other conformance resources in this" +
     " directory:";
@@ -140,11 +133,9 @@
             this.groupBox2.Controls.Add(this.chkXsdValidation);
             this.groupBox2.Controls.Add(this.btnValidate);
             this.groupBox2.Controls.Add(this.txtInstanceXml);
-            this.groupBox2.Location = new System.Drawing.Point(26, 337);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.groupBox2.Location = new System.Drawing.Point(13, 175);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(6, 6, 6, 6);
-            this.groupBox2.Size = new System.Drawing.Size(1534, 542);
+            this.groupBox2.Size = new System.Drawing.Size(767, 234);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Xml Instance";
@@ -153,10 +144,9 @@
             // 
             this.chkDisableFP.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.chkDisableFP.AutoSize = true;
-            this.chkDisableFP.Location = new System.Drawing.Point(474, 417);
-            this.chkDisableFP.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.chkDisableFP.Location = new System.Drawing.Point(237, 167);
             this.chkDisableFP.Name = "chkDisableFP";
-            this.chkDisableFP.Size = new System.Drawing.Size(264, 29);
+            this.chkDisableFP.Size = new System.Drawing.Size(141, 17);
             this.chkDisableFP.TabIndex = 3;
             this.chkDisableFP.Text = "Disable &FirePath checks";
             this.chkDisableFP.UseVisualStyleBackColor = true;
@@ -165,10 +155,9 @@
             // 
             this.lblTerminology.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.lblTerminology.AutoSize = true;
-            this.lblTerminology.Location = new System.Drawing.Point(1128, 415);
-            this.lblTerminology.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.lblTerminology.Location = new System.Drawing.Point(564, 168);
             this.lblTerminology.Name = "lblTerminology";
-            this.lblTerminology.Size = new System.Drawing.Size(136, 25);
+            this.lblTerminology.Size = new System.Drawing.Size(67, 13);
             this.lblTerminology.TabIndex = 4;
             this.lblTerminology.Text = "&Terminology:";
             // 
@@ -181,20 +170,18 @@
             "None",
             "Local",
             "Grahame"});
-            this.cboTerminology.Location = new System.Drawing.Point(1274, 408);
-            this.cboTerminology.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.cboTerminology.Location = new System.Drawing.Point(637, 164);
             this.cboTerminology.Name = "cboTerminology";
-            this.cboTerminology.Size = new System.Drawing.Size(232, 33);
+            this.cboTerminology.Size = new System.Drawing.Size(118, 21);
             this.cboTerminology.TabIndex = 5;
             // 
             // chkShowTraceInfo
             // 
             this.chkShowTraceInfo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.chkShowTraceInfo.AutoSize = true;
-            this.chkShowTraceInfo.Location = new System.Drawing.Point(18, 417);
-            this.chkShowTraceInfo.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.chkShowTraceInfo.Location = new System.Drawing.Point(9, 167);
             this.chkShowTraceInfo.Name = "chkShowTraceInfo";
-            this.chkShowTraceInfo.Size = new System.Drawing.Size(198, 29);
+            this.chkShowTraceInfo.Size = new System.Drawing.Size(108, 17);
             this.chkShowTraceInfo.TabIndex = 1;
             this.chkShowTraceInfo.Text = "&Trace information";
             this.chkShowTraceInfo.UseVisualStyleBackColor = true;
@@ -203,10 +190,9 @@
             // 
             this.chkXsdValidation.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.chkXsdValidation.AutoSize = true;
-            this.chkXsdValidation.Location = new System.Drawing.Point(250, 417);
-            this.chkXsdValidation.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.chkXsdValidation.Location = new System.Drawing.Point(125, 167);
             this.chkXsdValidation.Name = "chkXsdValidation";
-            this.chkXsdValidation.Size = new System.Drawing.Size(166, 29);
+            this.chkXsdValidation.Size = new System.Drawing.Size(92, 17);
             this.chkXsdValidation.TabIndex = 2;
             this.chkXsdValidation.Text = "&Xsd validation";
             this.chkXsdValidation.UseVisualStyleBackColor = true;
@@ -214,10 +200,9 @@
             // btnValidate
             // 
             this.btnValidate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnValidate.Location = new System.Drawing.Point(18, 471);
-            this.btnValidate.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.btnValidate.Location = new System.Drawing.Point(9, 197);
             this.btnValidate.Name = "btnValidate";
-            this.btnValidate.Size = new System.Drawing.Size(150, 44);
+            this.btnValidate.Size = new System.Drawing.Size(75, 23);
             this.btnValidate.TabIndex = 6;
             this.btnValidate.Text = "&Validate!";
             this.btnValidate.UseVisualStyleBackColor = true;
@@ -230,10 +215,9 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtInstanceXml.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::Furore.Fhir.ValidationDemo.Properties.Settings.Default, "InstanceXml", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.txtInstanceXml.Location = new System.Drawing.Point(18, 44);
-            this.txtInstanceXml.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.txtInstanceXml.Location = new System.Drawing.Point(9, 23);
             this.txtInstanceXml.Name = "txtInstanceXml";
-            this.txtInstanceXml.Size = new System.Drawing.Size(1492, 342);
+            this.txtInstanceXml.Size = new System.Drawing.Size(748, 132);
             this.txtInstanceXml.TabIndex = 0;
             this.txtInstanceXml.Text = global::Furore.Fhir.ValidationDemo.Properties.Settings.Default.InstanceXml;
             // 
@@ -242,11 +226,9 @@
             this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox3.Controls.Add(this.txtOutcome);
-            this.groupBox3.Location = new System.Drawing.Point(24, 890);
-            this.groupBox3.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.groupBox3.Location = new System.Drawing.Point(12, 415);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Padding = new System.Windows.Forms.Padding(6, 6, 6, 6);
-            this.groupBox3.Size = new System.Drawing.Size(1534, 287);
+            this.groupBox3.Size = new System.Drawing.Size(767, 127);
             this.groupBox3.TabIndex = 2;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Last Validation results";
@@ -257,13 +239,12 @@
             this.txtOutcome.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtOutcome.Location = new System.Drawing.Point(20, 38);
-            this.txtOutcome.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.txtOutcome.Location = new System.Drawing.Point(10, 20);
             this.txtOutcome.Multiline = true;
             this.txtOutcome.Name = "txtOutcome";
             this.txtOutcome.ReadOnly = true;
             this.txtOutcome.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.txtOutcome.Size = new System.Drawing.Size(1492, 216);
+            this.txtOutcome.Size = new System.Drawing.Size(748, 98);
             this.txtOutcome.TabIndex = 0;
             // 
             // folderBrowserDialog
@@ -276,13 +257,12 @@
             // MainForm
             // 
             this.AcceptButton = this.btnValidate;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1586, 1053);
-            this.Controls.Add(this.groupBox3);
+            this.ClientSize = new System.Drawing.Size(793, 548);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
-            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.Controls.Add(this.groupBox3);
             this.Name = "MainForm";
             this.Text = ".NET Profile Validation Demo 1.3.2 (STU3)";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MainForm_FormClosed);
