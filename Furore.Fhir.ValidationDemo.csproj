@@ -32,10 +32,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Hl7.FhirPath, Version=0.4.0.0, Culture=neutral, PublicKeyToken=d706911480550fc3, processorArchitecture=MSIL">
-      <HintPath>packages\Hl7.FhirPath.0.4.0\lib\net45\Hl7.FhirPath.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
@@ -73,7 +69,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <None Include="packages.config" />
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -88,13 +86,17 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\fhir-net-api\src\Hl7.Fhir.Core\Hl7.Fhir.Core.Net45.csproj">
-      <Project>{92cc9186-0a21-4e06-b11f-907584fbfd81}</Project>
-      <Name>Hl7.Fhir.Core.Net45</Name>
+    <ProjectReference Include="..\fhir-net-api\src\Hl7.Fhir.Core\Hl7.Fhir.Core.csproj">
+      <Project>{7C9F23BF-498C-40AA-80CF-D495CE58D246}</Project>
+      <Name>Hl7.Fhir.Core</Name>
     </ProjectReference>
-    <ProjectReference Include="..\fhir-net-api\src\Hl7.Fhir.Specification\Hl7.Fhir.Specification.Net45.csproj">
-      <Project>{34A3B072-5ABC-4F7C-B7E8-0AB67C58CC61}</Project>
-      <Name>Hl7.Fhir.Specification.Net45</Name>
+    <ProjectReference Include="..\fhir-net-api\src\Hl7.Fhir.Specification\Hl7.Fhir.Specification.csproj">
+      <Project>{61AF8F62-C4AA-4A5F-A7D5-76021A300D09}</Project>
+      <Name>Hl7.Fhir.Specification</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\fhir-net-api\src\Hl7.Fhir.Support\Hl7.Fhir.Support.csproj">
+      <Project>{8e194124-0629-4059-a084-fd42fcb6ca42}</Project>
+      <Name>Hl7.Fhir.Support</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
