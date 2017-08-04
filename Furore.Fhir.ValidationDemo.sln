@@ -1,17 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26430.14
+VisualStudioVersion = 15.0.26430.6
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Furore.Fhir.ValidationDemo", "Furore.Fhir.ValidationDemo.csproj", "{655AE501-2657-42F5-A1B5-4DBE94D5AB05}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hl7.Fhir.Core", "..\fhir-net-api\src\Hl7.Fhir.Core\Hl7.Fhir.Core.csproj", "{7C9F23BF-498C-40AA-80CF-D495CE58D246}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hl7.Fhir.Specification", "..\fhir-net-api\src\Hl7.Fhir.Specification\Hl7.Fhir.Specification.csproj", "{61AF8F62-C4AA-4A5F-A7D5-76021A300D09}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hl7.Fhir.Support", "..\fhir-net-api\src\Hl7.Fhir.Support\Hl7.Fhir.Support.csproj", "{8E194124-0629-4059-A084-FD42FCB6CA42}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hl7.FhirPath", "..\fhir-net-api\src\Hl7.FhirPath\Hl7.FhirPath.csproj", "{2B1B6B23-7FAB-4612-80A4-508C302C75F5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,22 +15,6 @@ Global
 		{655AE501-2657-42F5-A1B5-4DBE94D5AB05}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{655AE501-2657-42F5-A1B5-4DBE94D5AB05}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{655AE501-2657-42F5-A1B5-4DBE94D5AB05}.Release|Any CPU.Build.0 = Release|Any CPU
-		{7C9F23BF-498C-40AA-80CF-D495CE58D246}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7C9F23BF-498C-40AA-80CF-D495CE58D246}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7C9F23BF-498C-40AA-80CF-D495CE58D246}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7C9F23BF-498C-40AA-80CF-D495CE58D246}.Release|Any CPU.Build.0 = Release|Any CPU
-		{61AF8F62-C4AA-4A5F-A7D5-76021A300D09}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{61AF8F62-C4AA-4A5F-A7D5-76021A300D09}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{61AF8F62-C4AA-4A5F-A7D5-76021A300D09}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{61AF8F62-C4AA-4A5F-A7D5-76021A300D09}.Release|Any CPU.Build.0 = Release|Any CPU
-		{8E194124-0629-4059-A084-FD42FCB6CA42}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{8E194124-0629-4059-A084-FD42FCB6CA42}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{8E194124-0629-4059-A084-FD42FCB6CA42}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{8E194124-0629-4059-A084-FD42FCB6CA42}.Release|Any CPU.Build.0 = Release|Any CPU
-		{2B1B6B23-7FAB-4612-80A4-508C302C75F5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{2B1B6B23-7FAB-4612-80A4-508C302C75F5}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{2B1B6B23-7FAB-4612-80A4-508C302C75F5}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{2B1B6B23-7FAB-4612-80A4-508C302C75F5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
