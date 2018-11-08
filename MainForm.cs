@@ -41,7 +41,7 @@ namespace Furore.Fhir.ValidationDemo
 
         private void btnReload_Click(object sender, EventArgs e)
         {
-            refreshProfileSource();
+            ProfileSource = refreshProfileSource();
         }
 
         private void MainForm_Load(object sender, EventArgs e)

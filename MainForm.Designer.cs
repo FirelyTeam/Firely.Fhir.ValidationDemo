@@ -250,9 +250,9 @@
             this.chkGenSnapshot.AutoSize = true;
             this.chkGenSnapshot.Checked = global::Furore.Fhir.ValidationDemo.Properties.Settings.Default.RegenerateSnapshot;
             this.chkGenSnapshot.DataBindings.Add(new System.Windows.Forms.Binding("Checked", global::Furore.Fhir.ValidationDemo.Properties.Settings.Default, "RegenerateSnapshot", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.chkGenSnapshot.Location = new System.Drawing.Point(418, 9);
+            this.chkGenSnapshot.Location = new System.Drawing.Point(418, 19);
             this.chkGenSnapshot.Name = "chkGenSnapshot";
-            this.chkGenSnapshot.Size = new System.Drawing.Size(146, 27);
+            this.chkGenSnapshot.Size = new System.Drawing.Size(133, 17);
             this.chkGenSnapshot.TabIndex = 24;
             this.chkGenSnapshot.Text = "Regenerate snapshots";
             this.chkGenSnapshot.UseVisualStyleBackColor = true;
@@ -263,9 +263,9 @@
             this.chkDisableFP.AutoSize = true;
             this.chkDisableFP.Checked = global::Furore.Fhir.ValidationDemo.Properties.Settings.Default.DisableFP;
             this.chkDisableFP.DataBindings.Add(new System.Windows.Forms.Binding("Checked", global::Furore.Fhir.ValidationDemo.Properties.Settings.Default, "DisableFP", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.chkDisableFP.Location = new System.Drawing.Point(248, 9);
+            this.chkDisableFP.Location = new System.Drawing.Point(248, 19);
             this.chkDisableFP.Name = "chkDisableFP";
-            this.chkDisableFP.Size = new System.Drawing.Size(154, 27);
+            this.chkDisableFP.Size = new System.Drawing.Size(141, 17);
             this.chkDisableFP.TabIndex = 23;
             this.chkDisableFP.Text = "Disable Fhir&Path checks";
             this.chkDisableFP.UseVisualStyleBackColor = true;
@@ -276,9 +276,9 @@
             this.chkShowTraceInfo.AutoSize = true;
             this.chkShowTraceInfo.Checked = global::Furore.Fhir.ValidationDemo.Properties.Settings.Default.EnableTrace;
             this.chkShowTraceInfo.DataBindings.Add(new System.Windows.Forms.Binding("Checked", global::Furore.Fhir.ValidationDemo.Properties.Settings.Default, "EnableTrace", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.chkShowTraceInfo.Location = new System.Drawing.Point(13, 9);
+            this.chkShowTraceInfo.Location = new System.Drawing.Point(13, 19);
             this.chkShowTraceInfo.Name = "chkShowTraceInfo";
-            this.chkShowTraceInfo.Size = new System.Drawing.Size(121, 27);
+            this.chkShowTraceInfo.Size = new System.Drawing.Size(108, 17);
             this.chkShowTraceInfo.TabIndex = 21;
             this.chkShowTraceInfo.Text = "&Trace information";
             this.chkShowTraceInfo.UseVisualStyleBackColor = true;
@@ -289,9 +289,9 @@
             this.chkXsdValidation.AutoSize = true;
             this.chkXsdValidation.Checked = global::Furore.Fhir.ValidationDemo.Properties.Settings.Default.DoXsdValidation;
             this.chkXsdValidation.DataBindings.Add(new System.Windows.Forms.Binding("Checked", global::Furore.Fhir.ValidationDemo.Properties.Settings.Default, "DoXsdValidation", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.chkXsdValidation.Location = new System.Drawing.Point(135, 9);
+            this.chkXsdValidation.Location = new System.Drawing.Point(135, 19);
             this.chkXsdValidation.Name = "chkXsdValidation";
-            this.chkXsdValidation.Size = new System.Drawing.Size(105, 27);
+            this.chkXsdValidation.Size = new System.Drawing.Size(92, 17);
             this.chkXsdValidation.TabIndex = 22;
             this.chkXsdValidation.Text = "&Xsd validation";
             this.chkXsdValidation.UseVisualStyleBackColor = true;
@@ -375,7 +375,7 @@
             this.Controls.Add(this.instanceBox);
             this.Controls.Add(this.groupBox3);
             this.Name = "MainForm";
-            this.Text = ".NET Profile Validation Tool 1.4 (STU3)";
+            this.Text = ".NET Profile Validation Tool 1.5 (STU3)";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MainForm_FormClosed);
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.instanceBox.ResumeLayout(false);
