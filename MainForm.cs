@@ -41,7 +41,7 @@ namespace Furore.Fhir.ValidationDemo
 
         private void btnReload_Click(object sender, EventArgs e)
         {
-            refreshProfileSource();
+            ProfileSource = refreshProfileSource();
         }
 
         private void MainForm_Load(object sender, EventArgs e)
@@ -142,7 +142,7 @@ namespace Furore.Fhir.ValidationDemo
                 // Configure the validator based on the user's settings
                 // This includes a reference to the resolver that we have constructed in previous methods
                 // and which helps the validator to look for profiles
-                ValidationSettings settings = ValidationSettings.Default;
+                ValidationSettings settings = ValidationSettings.CreateDefault();
                 settings.EnableXsdValidation = chkXsdValidation.Checked;
                 settings.Trace = chkShowTraceInfo.Checked;
                 settings.ResourceResolver = this.ProfileSource;
@@ -205,7 +205,7 @@ namespace Furore.Fhir.ValidationDemo
                     {
                         // We not only have a source for core data, we also read data from a user-specified directory. We also cache the contents of this source, like
                         // we did with the CoreSource above.
-                        var directorySource = new CachedResolver(new DirectorySource(profilePath, includeSubdirectories: true));
+                        var directorySource = new CachedResolver(new DirectorySource(profilePath, new DirectorySourceSettings { IncludeSubDirectories = true }));
 
                         // Finally, we combine both sources, so we will find profiles both from the core zip as well as from the directory.
                         // By mentioning the directory source first, anything in the user directory will override what is in the core zip.
@@ -285,7 +285,7 @@ namespace Furore.Fhir.ValidationDemo
                 // i.e. DSTU2/STU3/release 4 etcetera.
                 // For now, we have just implemented this interface for POCO's so, let's
                 // create one.
-                e.Result = new PocoNavigator(poco);
+                e.Result = poco.ToTypedElement();
             }
             else
             {
