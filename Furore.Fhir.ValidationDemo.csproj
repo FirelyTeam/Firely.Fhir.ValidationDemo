@@ -115,12 +115,6 @@
     <None Include="specification.zip">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="xhtml\fhir-xhtml.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="xhtml\xml.xsd">
-      <SubType>Designer</SubType>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
