@@ -177,7 +177,7 @@ namespace Furore.Fhir.ValidationDemo
 
                 // The validator generates an OperationOutcome as output;                
                 setOutcome(result);
-                ShowStatusMessage($"Validation finished in {sw.ElapsedMilliseconds} miliseconds");
+                ShowStatusMessage($"Validation finished in {sw.ElapsedMilliseconds} milliseconds");
             }
             catch (Exception ex)
             {
