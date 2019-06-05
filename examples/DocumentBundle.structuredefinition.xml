@@ -3,7 +3,7 @@
   <url value="http://example.org/StructureDefinition/DocumentBundle" />
   <name value="DocumentBundle" />
   <status value="draft" />
-  <fhirVersion value="1.0.2" />
+  <fhirVersion value="3.0.1" />
   <kind value="resource" />
   <type value="Bundle" />
   <abstract value="false" />
