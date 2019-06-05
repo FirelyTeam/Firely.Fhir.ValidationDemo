@@ -375,7 +375,7 @@ namespace Furore.Fhir.ValidationDemo
             this.Controls.Add(this.instanceBox);
             this.Controls.Add(this.groupBox3);
             this.Name = "MainForm";
-            this.Text = ".NET Profile Validation Tool 1.5.2 (STU3)";
+            this.Text = ".NET Profile Validation Tool 1.5.4 (STU3)";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MainForm_FormClosed);
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.instanceBox.ResumeLayout(false);
