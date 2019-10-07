@@ -11,6 +11,7 @@ using Hl7.Fhir.Validation;
 using System;
 using System.Diagnostics;
 using System.IO;
+using System.Reflection;
 using System.Windows.Forms;
 
 namespace Furore.Fhir.ValidationDemo
@@ -27,6 +28,9 @@ namespace Furore.Fhir.ValidationDemo
             CoreSource = new CachedResolver(ZipSource.CreateValidationSource());
 
             _settingsForm = new SettingsForm();
+
+            Version version = Assembly.GetExecutingAssembly().GetName().Version;
+            Text = Text + " " + version.Major + "." + version.Minor + " (build " + version.Build + ")"; //change form titl
 
             // Other initializations are done on the form_load
         }
