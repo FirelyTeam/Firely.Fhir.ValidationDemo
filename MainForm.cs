@@ -11,7 +11,6 @@ using Hl7.Fhir.Validation;
 using System;
 using System.Diagnostics;
 using System.IO;
-using System.Linq;
 using System.Windows.Forms;
 
 namespace Furore.Fhir.ValidationDemo
@@ -84,7 +83,7 @@ namespace Furore.Fhir.ValidationDemo
 
             var filtered = new OperationOutcome();
 
-            foreach(var issue in outcome.Issue)
+            foreach (var issue in outcome.Issue)
             {
                 if (issue.Severity == OperationOutcome.IssueSeverity.Error && cbErrors.Checked == false)
                     continue;
@@ -125,7 +124,7 @@ namespace Furore.Fhir.ValidationDemo
                 return;
             }
 
-            if(InstanceFormat == ResourceFormat.Unknown)
+            if (InstanceFormat == ResourceFormat.Unknown)
             {
                 MessageBox.Show($"The {instanceBox.Text} textbox above does not contain xml or json");
                 return;
@@ -229,7 +228,7 @@ namespace Furore.Fhir.ValidationDemo
 
             return result;
 
-            void setSource(string source, bool error=false)
+            void setSource(string source, bool error = false)
             {
                 lblDefinitionPath.Text = source;
                 if (error)
@@ -368,7 +367,7 @@ namespace Furore.Fhir.ValidationDemo
 
         private void btnCopyClipboard_Click(object sender, EventArgs e)
         {
-            if(!String.IsNullOrEmpty(txtOutcome.Text))
+            if (!String.IsNullOrEmpty(txtOutcome.Text))
             {
                 System.Windows.Forms.Clipboard.SetText(txtOutcome.Text);
             }
