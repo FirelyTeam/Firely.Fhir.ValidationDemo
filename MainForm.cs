@@ -11,6 +11,7 @@ using Hl7.Fhir.Validation;
 using System;
 using System.Diagnostics;
 using System.IO;
+using System.Reflection;
 using System.Windows.Forms;
 
 namespace Furore.Fhir.ValidationDemo
@@ -27,6 +28,9 @@ namespace Furore.Fhir.ValidationDemo
             CoreSource = new CachedResolver(ZipSource.CreateValidationSource());
 
             _settingsForm = new SettingsForm();
+
+            Version version = Assembly.GetExecutingAssembly().GetName().Version;
+            Text = Text + " " + version.Major + "." + version.Minor + " (build " + version.Build + ")"; //change form titl
 
             // Other initializations are done on the form_load
         }
@@ -240,7 +244,7 @@ namespace Furore.Fhir.ValidationDemo
 
         private void refreshTerminologySource(IResourceResolver resolver)
         {
-            TerminologySource = new LocalTerminologyService(resolver.AsAsync());
+            TerminologySource = new LocalTerminologyService(resolver);
             setTX("Built-in terminology service");
             var extTS = _settingsForm.TerminologyServer;
 
@@ -251,7 +255,7 @@ namespace Furore.Fhir.ValidationDemo
 
                 if (_settingsForm.UseBuiltinTx)
                 {
-                    var local = new LocalTerminologyService(resolver.AsAsync());
+                    var local = new LocalTerminologyService(resolver);
                     TerminologySource = new FallbackTerminologyService(local, TerminologySource);
                     setTX($"Built-in terminology service, then service at {extTS}");
                 }

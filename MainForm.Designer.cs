@@ -31,7 +31,6 @@ namespace Furore.Fhir.ValidationDemo
             this.instanceBox = new System.Windows.Forms.GroupBox();
             this.btnLoad = new System.Windows.Forms.Button();
             this.btnValidate = new System.Windows.Forms.Button();
-            this.txtInstanceXml = new System.Windows.Forms.RichTextBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.cbErrors = new System.Windows.Forms.CheckBox();
@@ -42,10 +41,6 @@ namespace Furore.Fhir.ValidationDemo
             this.mainStrip = new System.Windows.Forms.StatusStrip();
             this.mainStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.chkGenSnapshot = new System.Windows.Forms.CheckBox();
-            this.chkDisableFP = new System.Windows.Forms.CheckBox();
-            this.chkShowTraceInfo = new System.Windows.Forms.CheckBox();
-            this.chkXsdValidation = new System.Windows.Forms.CheckBox();
             this.btnReload = new System.Windows.Forms.Button();
             this.btnSettings = new System.Windows.Forms.Button();
             this.lblTerminologySvc = new System.Windows.Forms.Label();
@@ -53,6 +48,11 @@ namespace Furore.Fhir.ValidationDemo
             this.lblDefinitionPath = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.openInstance = new System.Windows.Forms.OpenFileDialog();
+            this.chkGenSnapshot = new System.Windows.Forms.CheckBox();
+            this.chkDisableFP = new System.Windows.Forms.CheckBox();
+            this.chkShowTraceInfo = new System.Windows.Forms.CheckBox();
+            this.chkXsdValidation = new System.Windows.Forms.CheckBox();
+            this.txtInstanceXml = new System.Windows.Forms.RichTextBox();
             this.instanceBox.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
@@ -96,20 +96,6 @@ namespace Furore.Fhir.ValidationDemo
             this.btnValidate.Text = "&Validate!";
             this.btnValidate.UseVisualStyleBackColor = true;
             this.btnValidate.Click += new System.EventHandler(this.btnValidate_Click);
-            // 
-            // txtInstanceXml
-            // 
-            this.txtInstanceXml.AcceptsTab = true;
-            this.txtInstanceXml.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtInstanceXml.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::Furore.Fhir.ValidationDemo.Properties.Settings.Default, "InstanceXml", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.txtInstanceXml.Location = new System.Drawing.Point(9, 23);
-            this.txtInstanceXml.Name = "txtInstanceXml";
-            this.txtInstanceXml.Size = new System.Drawing.Size(748, 187);
-            this.txtInstanceXml.TabIndex = 0;
-            this.txtInstanceXml.Text = global::Furore.Fhir.ValidationDemo.Properties.Settings.Default.InstanceXml;
-            this.txtInstanceXml.TextChanged += new System.EventHandler(this.txtInstanceXml_TextChanged);
             // 
             // groupBox3
             // 
@@ -244,58 +230,6 @@ namespace Furore.Fhir.ValidationDemo
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Settings";
             // 
-            // chkGenSnapshot
-            // 
-            this.chkGenSnapshot.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.chkGenSnapshot.AutoSize = true;
-            this.chkGenSnapshot.Checked = global::Furore.Fhir.ValidationDemo.Properties.Settings.Default.RegenerateSnapshot;
-            this.chkGenSnapshot.DataBindings.Add(new System.Windows.Forms.Binding("Checked", global::Furore.Fhir.ValidationDemo.Properties.Settings.Default, "RegenerateSnapshot", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.chkGenSnapshot.Location = new System.Drawing.Point(418, 19);
-            this.chkGenSnapshot.Name = "chkGenSnapshot";
-            this.chkGenSnapshot.Size = new System.Drawing.Size(133, 17);
-            this.chkGenSnapshot.TabIndex = 24;
-            this.chkGenSnapshot.Text = "Regenerate snapshots";
-            this.chkGenSnapshot.UseVisualStyleBackColor = true;
-            // 
-            // chkDisableFP
-            // 
-            this.chkDisableFP.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.chkDisableFP.AutoSize = true;
-            this.chkDisableFP.Checked = global::Furore.Fhir.ValidationDemo.Properties.Settings.Default.DisableFP;
-            this.chkDisableFP.DataBindings.Add(new System.Windows.Forms.Binding("Checked", global::Furore.Fhir.ValidationDemo.Properties.Settings.Default, "DisableFP", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.chkDisableFP.Location = new System.Drawing.Point(248, 19);
-            this.chkDisableFP.Name = "chkDisableFP";
-            this.chkDisableFP.Size = new System.Drawing.Size(141, 17);
-            this.chkDisableFP.TabIndex = 23;
-            this.chkDisableFP.Text = "Disable Fhir&Path checks";
-            this.chkDisableFP.UseVisualStyleBackColor = true;
-            // 
-            // chkShowTraceInfo
-            // 
-            this.chkShowTraceInfo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.chkShowTraceInfo.AutoSize = true;
-            this.chkShowTraceInfo.Checked = global::Furore.Fhir.ValidationDemo.Properties.Settings.Default.EnableTrace;
-            this.chkShowTraceInfo.DataBindings.Add(new System.Windows.Forms.Binding("Checked", global::Furore.Fhir.ValidationDemo.Properties.Settings.Default, "EnableTrace", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.chkShowTraceInfo.Location = new System.Drawing.Point(13, 19);
-            this.chkShowTraceInfo.Name = "chkShowTraceInfo";
-            this.chkShowTraceInfo.Size = new System.Drawing.Size(108, 17);
-            this.chkShowTraceInfo.TabIndex = 21;
-            this.chkShowTraceInfo.Text = "&Trace information";
-            this.chkShowTraceInfo.UseVisualStyleBackColor = true;
-            // 
-            // chkXsdValidation
-            // 
-            this.chkXsdValidation.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.chkXsdValidation.AutoSize = true;
-            this.chkXsdValidation.Checked = global::Furore.Fhir.ValidationDemo.Properties.Settings.Default.DoXsdValidation;
-            this.chkXsdValidation.DataBindings.Add(new System.Windows.Forms.Binding("Checked", global::Furore.Fhir.ValidationDemo.Properties.Settings.Default, "DoXsdValidation", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.chkXsdValidation.Location = new System.Drawing.Point(135, 19);
-            this.chkXsdValidation.Name = "chkXsdValidation";
-            this.chkXsdValidation.Size = new System.Drawing.Size(92, 17);
-            this.chkXsdValidation.TabIndex = 22;
-            this.chkXsdValidation.Text = "&Xsd validation";
-            this.chkXsdValidation.UseVisualStyleBackColor = true;
-            // 
             // btnReload
             // 
             this.btnReload.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
@@ -364,6 +298,72 @@ namespace Furore.Fhir.ValidationDemo
             this.openInstance.Filter = "XML|*.xml|Json|*.json";
             this.openInstance.Title = "Open an instance";
             // 
+            // chkGenSnapshot
+            // 
+            this.chkGenSnapshot.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.chkGenSnapshot.AutoSize = true;
+            this.chkGenSnapshot.Checked = global::Furore.Fhir.ValidationDemo.Properties.Settings.Default.RegenerateSnapshot;
+            this.chkGenSnapshot.DataBindings.Add(new System.Windows.Forms.Binding("Checked", global::Furore.Fhir.ValidationDemo.Properties.Settings.Default, "RegenerateSnapshot", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.chkGenSnapshot.Location = new System.Drawing.Point(418, 19);
+            this.chkGenSnapshot.Name = "chkGenSnapshot";
+            this.chkGenSnapshot.Size = new System.Drawing.Size(133, 17);
+            this.chkGenSnapshot.TabIndex = 24;
+            this.chkGenSnapshot.Text = "Regenerate snapshots";
+            this.chkGenSnapshot.UseVisualStyleBackColor = true;
+            // 
+            // chkDisableFP
+            // 
+            this.chkDisableFP.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.chkDisableFP.AutoSize = true;
+            this.chkDisableFP.Checked = global::Furore.Fhir.ValidationDemo.Properties.Settings.Default.DisableFP;
+            this.chkDisableFP.DataBindings.Add(new System.Windows.Forms.Binding("Checked", global::Furore.Fhir.ValidationDemo.Properties.Settings.Default, "DisableFP", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.chkDisableFP.Location = new System.Drawing.Point(248, 19);
+            this.chkDisableFP.Name = "chkDisableFP";
+            this.chkDisableFP.Size = new System.Drawing.Size(141, 17);
+            this.chkDisableFP.TabIndex = 23;
+            this.chkDisableFP.Text = "Disable Fhir&Path checks";
+            this.chkDisableFP.UseVisualStyleBackColor = true;
+            // 
+            // chkShowTraceInfo
+            // 
+            this.chkShowTraceInfo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.chkShowTraceInfo.AutoSize = true;
+            this.chkShowTraceInfo.Checked = global::Furore.Fhir.ValidationDemo.Properties.Settings.Default.EnableTrace;
+            this.chkShowTraceInfo.DataBindings.Add(new System.Windows.Forms.Binding("Checked", global::Furore.Fhir.ValidationDemo.Properties.Settings.Default, "EnableTrace", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.chkShowTraceInfo.Location = new System.Drawing.Point(13, 19);
+            this.chkShowTraceInfo.Name = "chkShowTraceInfo";
+            this.chkShowTraceInfo.Size = new System.Drawing.Size(108, 17);
+            this.chkShowTraceInfo.TabIndex = 21;
+            this.chkShowTraceInfo.Text = "&Trace information";
+            this.chkShowTraceInfo.UseVisualStyleBackColor = true;
+            // 
+            // chkXsdValidation
+            // 
+            this.chkXsdValidation.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.chkXsdValidation.AutoSize = true;
+            this.chkXsdValidation.Checked = global::Furore.Fhir.ValidationDemo.Properties.Settings.Default.DoXsdValidation;
+            this.chkXsdValidation.DataBindings.Add(new System.Windows.Forms.Binding("Checked", global::Furore.Fhir.ValidationDemo.Properties.Settings.Default, "DoXsdValidation", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.chkXsdValidation.Location = new System.Drawing.Point(135, 19);
+            this.chkXsdValidation.Name = "chkXsdValidation";
+            this.chkXsdValidation.Size = new System.Drawing.Size(92, 17);
+            this.chkXsdValidation.TabIndex = 22;
+            this.chkXsdValidation.Text = "&Xsd validation";
+            this.chkXsdValidation.UseVisualStyleBackColor = true;
+            // 
+            // txtInstanceXml
+            // 
+            this.txtInstanceXml.AcceptsTab = true;
+            this.txtInstanceXml.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtInstanceXml.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::Furore.Fhir.ValidationDemo.Properties.Settings.Default, "InstanceXml", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.txtInstanceXml.Location = new System.Drawing.Point(9, 23);
+            this.txtInstanceXml.Name = "txtInstanceXml";
+            this.txtInstanceXml.Size = new System.Drawing.Size(748, 187);
+            this.txtInstanceXml.TabIndex = 0;
+            this.txtInstanceXml.Text = global::Furore.Fhir.ValidationDemo.Properties.Settings.Default.InstanceXml;
+            this.txtInstanceXml.TextChanged += new System.EventHandler(this.txtInstanceXml_TextChanged);
+            // 
             // MainForm
             // 
             this.AcceptButton = this.btnValidate;
@@ -375,7 +375,7 @@ namespace Furore.Fhir.ValidationDemo
             this.Controls.Add(this.instanceBox);
             this.Controls.Add(this.groupBox3);
             this.Name = "MainForm";
-            this.Text = ".NET Profile Validation Tool 1.5.4 (STU3)";
+            this.Text = ".NET Profile Validation Tool 1.6.0-alpha (STU3)";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MainForm_FormClosed);
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.instanceBox.ResumeLayout(false);
