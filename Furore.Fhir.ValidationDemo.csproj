@@ -9,7 +9,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Furore.Fhir.ValidationDemo</RootNamespace>
     <AssemblyName>Furore.Fhir.ValidationDemo</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -32,26 +32,29 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Hl7.Fhir.ElementModel, Version=1.1.3.0, Culture=neutral, PublicKeyToken=d706911480550fc3, processorArchitecture=MSIL">
-      <HintPath>packages\Hl7.Fhir.ElementModel.1.1.3\lib\net45\Hl7.Fhir.ElementModel.dll</HintPath>
+    <Reference Include="Hl7.Fhir.ElementModel, Version=3.5.0.0, Culture=neutral, PublicKeyToken=d706911480550fc3, processorArchitecture=MSIL">
+      <HintPath>packages\Hl7.Fhir.ElementModel.3.5.0\lib\net45\Hl7.Fhir.ElementModel.dll</HintPath>
     </Reference>
-    <Reference Include="Hl7.Fhir.Serialization, Version=1.1.3.0, Culture=neutral, PublicKeyToken=d706911480550fc3, processorArchitecture=MSIL">
-      <HintPath>packages\Hl7.Fhir.Serialization.1.1.3\lib\net45\Hl7.Fhir.Serialization.dll</HintPath>
+    <Reference Include="Hl7.Fhir.Serialization, Version=3.5.0.0, Culture=neutral, PublicKeyToken=d706911480550fc3, processorArchitecture=MSIL">
+      <HintPath>packages\Hl7.Fhir.Serialization.3.5.0\lib\net45\Hl7.Fhir.Serialization.dll</HintPath>
     </Reference>
-    <Reference Include="Hl7.Fhir.DSTU2.Core, Version=1.1.3.0, Culture=neutral, PublicKeyToken=d706911480550fc3, processorArchitecture=MSIL">
-      <HintPath>packages\Hl7.Fhir.DSTU2.1.1.3\lib\net45\Hl7.Fhir.DSTU2.Core.dll</HintPath>
+    <Reference Include="Hl7.Fhir.STU3.Core, Version=3.5.0.0, Culture=neutral, PublicKeyToken=d706911480550fc3, processorArchitecture=MSIL">
+      <HintPath>packages\Hl7.Fhir.STU3.3.5.0\lib\net45\Hl7.Fhir.STU3.Core.dll</HintPath>
     </Reference>
-    <Reference Include="Hl7.Fhir.DSTU2.Specification, Version=1.1.3.0, Culture=neutral, PublicKeyToken=d706911480550fc3, processorArchitecture=MSIL">
-      <HintPath>packages\Hl7.Fhir.Specification.DSTU2.1.1.3\lib\net45\Hl7.Fhir.DSTU2.Specification.dll</HintPath>
+    <Reference Include="Hl7.Fhir.STU3.Specification, Version=3.5.0.0, Culture=neutral, PublicKeyToken=d706911480550fc3, processorArchitecture=MSIL">
+      <HintPath>packages\Hl7.Fhir.Specification.STU3.3.5.0\lib\net45\Hl7.Fhir.STU3.Specification.dll</HintPath>
     </Reference>
-    <Reference Include="Hl7.Fhir.Support, Version=1.1.3.0, Culture=neutral, PublicKeyToken=d706911480550fc3, processorArchitecture=MSIL">
-      <HintPath>packages\Hl7.Fhir.Support.1.1.3\lib\net45\Hl7.Fhir.Support.dll</HintPath>
+    <Reference Include="Hl7.Fhir.Support, Version=3.5.0.0, Culture=neutral, PublicKeyToken=d706911480550fc3, processorArchitecture=MSIL">
+      <HintPath>packages\Hl7.Fhir.Support.3.5.0\lib\net45\Hl7.Fhir.Support.dll</HintPath>
     </Reference>
-    <Reference Include="Hl7.FhirPath, Version=1.1.3.0, Culture=neutral, PublicKeyToken=d706911480550fc3, processorArchitecture=MSIL">
-      <HintPath>packages\Hl7.FhirPath.1.1.3\lib\net45\Hl7.FhirPath.dll</HintPath>
+    <Reference Include="Hl7.Fhir.Support.Poco, Version=3.5.0.0, Culture=neutral, PublicKeyToken=d706911480550fc3, processorArchitecture=MSIL">
+      <HintPath>packages\Hl7.Fhir.Support.Poco.3.5.0\lib\net45\Hl7.Fhir.Support.Poco.dll</HintPath>
     </Reference>
-    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>packages\Newtonsoft.Json.12.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    <Reference Include="Hl7.FhirPath, Version=3.5.0.0, Culture=neutral, PublicKeyToken=d706911480550fc3, processorArchitecture=MSIL">
+      <HintPath>packages\Hl7.FhirPath.3.5.0\lib\net45\Hl7.FhirPath.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
@@ -100,9 +103,7 @@
     <EmbeddedResource Include="SettingsForm.resx">
       <DependentUpon>SettingsForm.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="packages.config">
-      <SubType>Designer</SubType>
-    </None>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

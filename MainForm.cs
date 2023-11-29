@@ -11,7 +11,6 @@ using Hl7.Fhir.Validation;
 using System;
 using System.Diagnostics;
 using System.IO;
-using System.Linq;
 using System.Windows.Forms;
 
 namespace Furore.Fhir.ValidationDemo
@@ -84,7 +83,7 @@ namespace Furore.Fhir.ValidationDemo
 
             var filtered = new OperationOutcome();
 
-            foreach(var issue in outcome.Issue)
+            foreach (var issue in outcome.Issue)
             {
                 if (issue.Severity == OperationOutcome.IssueSeverity.Error && cbErrors.Checked == false)
                     continue;
@@ -125,7 +124,7 @@ namespace Furore.Fhir.ValidationDemo
                 return;
             }
 
-            if(InstanceFormat == ResourceFormat.Unknown)
+            if (InstanceFormat == ResourceFormat.Unknown)
             {
                 MessageBox.Show($"The {instanceBox.Text} textbox above does not contain xml or json");
                 return;
@@ -177,7 +176,7 @@ namespace Furore.Fhir.ValidationDemo
 
                 // The validator generates an OperationOutcome as output;                
                 setOutcome(result);
-                ShowStatusMessage($"Validation finished in {sw.ElapsedMilliseconds} miliseconds");
+                ShowStatusMessage($"Validation finished in {sw.ElapsedMilliseconds} milliseconds");
             }
             catch (Exception ex)
             {
@@ -229,7 +228,7 @@ namespace Furore.Fhir.ValidationDemo
 
             return result;
 
-            void setSource(string source, bool error=false)
+            void setSource(string source, bool error = false)
             {
                 lblDefinitionPath.Text = source;
                 if (error)
@@ -241,7 +240,7 @@ namespace Furore.Fhir.ValidationDemo
 
         private void refreshTerminologySource(IResourceResolver resolver)
         {
-            TerminologySource = new LocalTerminologyService(resolver);
+            TerminologySource = new LocalTerminologyService(resolver.AsAsync());
             setTX("Built-in terminology service");
             var extTS = _settingsForm.TerminologyServer;
 
@@ -252,7 +251,7 @@ namespace Furore.Fhir.ValidationDemo
 
                 if (_settingsForm.UseBuiltinTx)
                 {
-                    var local = new LocalTerminologyService(resolver);
+                    var local = new LocalTerminologyService(resolver.AsAsync());
                     TerminologySource = new FallbackTerminologyService(local, TerminologySource);
                     setTX($"Built-in terminology service, then service at {extTS}");
                 }
@@ -368,7 +367,7 @@ namespace Furore.Fhir.ValidationDemo
 
         private void btnCopyClipboard_Click(object sender, EventArgs e)
         {
-            if(!String.IsNullOrEmpty(txtOutcome.Text))
+            if (!String.IsNullOrEmpty(txtOutcome.Text))
             {
                 System.Windows.Forms.Clipboard.SetText(txtOutcome.Text);
             }
