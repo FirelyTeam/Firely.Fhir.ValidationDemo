@@ -1,13 +1,5 @@
-﻿using Furore.Fhir.ValidationDemo.Properties;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
+﻿using Firely.Fhir.ValidationDemo.Properties;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace Furore.Fhir.ValidationDemo
 {
@@ -21,7 +13,7 @@ namespace Furore.Fhir.ValidationDemo
             cbxTermServers.Items.AddRange(txServers.ToArray());
         }
 
-        private void btnOpenProfileDir_Click(object sender, EventArgs e)
+        private void BtnOpenProfileDir_Click(object sender, EventArgs e)
         {
             if (!String.IsNullOrEmpty(txtProfileDirectory.Text))
                 folderBrowserDialog.SelectedPath = txtProfileDirectory.Text;
@@ -38,7 +30,9 @@ namespace Furore.Fhir.ValidationDemo
 
         public bool UseBuiltinTx => cbEnableBuiltIn.Checked;
 
-        private void cbxTermServers_Leave(object sender, EventArgs e)
+        public bool RegenerateSnapshots => chkGenSnapshot.Checked;
+
+        private void CbxTermServers_Leave(object sender, EventArgs e)
         {
             var newSelection = cbxTermServers.Text;
             if (String.IsNullOrEmpty(newSelection)) return;
