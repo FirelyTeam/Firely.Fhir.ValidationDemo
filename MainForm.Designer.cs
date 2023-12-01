@@ -29,6 +29,7 @@ namespace Furore.Fhir.ValidationDemo
         private void InitializeComponent()
         {
             instanceBox = new GroupBox();
+            chkDisableFP = new CheckBox();
             btnLoad = new Button();
             btnValidate = new Button();
             txtInstance = new RichTextBox();
@@ -42,8 +43,6 @@ namespace Furore.Fhir.ValidationDemo
             mainStrip = new StatusStrip();
             mainStatusLabel = new ToolStripStatusLabel();
             groupBox1 = new GroupBox();
-            chkDisableFP = new CheckBox();
-            chkXsdValidation = new CheckBox();
             btnReload = new Button();
             btnSettings = new Button();
             lblTerminologySvc = new Label();
@@ -61,6 +60,7 @@ namespace Furore.Fhir.ValidationDemo
             // instanceBox
             // 
             instanceBox.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            instanceBox.Controls.Add(chkDisableFP);
             instanceBox.Controls.Add(btnLoad);
             instanceBox.Controls.Add(btnValidate);
             instanceBox.Controls.Add(txtInstance);
@@ -68,15 +68,27 @@ namespace Furore.Fhir.ValidationDemo
             instanceBox.Margin = new Padding(4, 3, 4, 3);
             instanceBox.Name = "instanceBox";
             instanceBox.Padding = new Padding(4, 3, 4, 3);
-            instanceBox.Size = new Size(895, 286);
+            instanceBox.Size = new Size(895, 232);
             instanceBox.TabIndex = 1;
             instanceBox.TabStop = false;
             instanceBox.Text = "Instance";
             // 
+            // chkDisableFP
+            // 
+            chkDisableFP.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            chkDisableFP.AutoSize = true;
+            chkDisableFP.Location = new Point(115, 200);
+            chkDisableFP.Margin = new Padding(4, 3, 4, 3);
+            chkDisableFP.Name = "chkDisableFP";
+            chkDisableFP.Size = new Size(150, 19);
+            chkDisableFP.TabIndex = 24;
+            chkDisableFP.Text = "Disable Fhir&Path checks";
+            chkDisableFP.UseVisualStyleBackColor = true;
+            // 
             // btnLoad
             // 
             btnLoad.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            btnLoad.Location = new Point(780, 249);
+            btnLoad.Location = new Point(780, 195);
             btnLoad.Margin = new Padding(4, 3, 4, 3);
             btnLoad.Name = "btnLoad";
             btnLoad.Size = new Size(103, 27);
@@ -88,7 +100,7 @@ namespace Furore.Fhir.ValidationDemo
             // btnValidate
             // 
             btnValidate.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            btnValidate.Location = new Point(10, 249);
+            btnValidate.Location = new Point(10, 195);
             btnValidate.Margin = new Padding(4, 3, 4, 3);
             btnValidate.Name = "btnValidate";
             btnValidate.Size = new Size(88, 27);
@@ -104,7 +116,7 @@ namespace Furore.Fhir.ValidationDemo
             txtInstance.Location = new Point(10, 27);
             txtInstance.Margin = new Padding(4, 3, 4, 3);
             txtInstance.Name = "txtInstance";
-            txtInstance.Size = new Size(872, 215);
+            txtInstance.Size = new Size(872, 161);
             txtInstance.TabIndex = 0;
             txtInstance.Text = "";
             txtInstance.TextChanged += TxtInstanceXml_TextChanged;
@@ -115,11 +127,11 @@ namespace Furore.Fhir.ValidationDemo
             groupBox3.Controls.Add(flowLayoutPanel1);
             groupBox3.Controls.Add(btnCopyClipboard);
             groupBox3.Controls.Add(txtOutcome);
-            groupBox3.Location = new Point(14, 317);
+            groupBox3.Location = new Point(15, 262);
             groupBox3.Margin = new Padding(4, 3, 4, 3);
             groupBox3.Name = "groupBox3";
             groupBox3.Padding = new Padding(4, 3, 4, 3);
-            groupBox3.Size = new Size(895, 252);
+            groupBox3.Size = new Size(895, 202);
             groupBox3.TabIndex = 2;
             groupBox3.TabStop = false;
             groupBox3.Text = "Last Validation results";
@@ -129,10 +141,10 @@ namespace Furore.Fhir.ValidationDemo
             flowLayoutPanel1.Controls.Add(cbErrors);
             flowLayoutPanel1.Controls.Add(cbWarnings);
             flowLayoutPanel1.Controls.Add(cbInformation);
-            flowLayoutPanel1.Location = new Point(8, 209);
+            flowLayoutPanel1.Location = new Point(14, 149);
             flowLayoutPanel1.Margin = new Padding(4, 3, 4, 3);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(382, 36);
+            flowLayoutPanel1.Size = new Size(382, 42);
             flowLayoutPanel1.TabIndex = 10;
             // 
             // cbErrors
@@ -184,7 +196,7 @@ namespace Furore.Fhir.ValidationDemo
             // btnCopyClipboard
             // 
             btnCopyClipboard.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            btnCopyClipboard.Location = new Point(747, 213);
+            btnCopyClipboard.Location = new Point(745, 152);
             btnCopyClipboard.Margin = new Padding(4, 3, 4, 3);
             btnCopyClipboard.Name = "btnCopyClipboard";
             btnCopyClipboard.Size = new Size(138, 31);
@@ -197,20 +209,20 @@ namespace Furore.Fhir.ValidationDemo
             // 
             txtOutcome.AcceptsTab = true;
             txtOutcome.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            txtOutcome.Location = new Point(12, 23);
+            txtOutcome.Location = new Point(11, 22);
             txtOutcome.Margin = new Padding(4, 3, 4, 3);
             txtOutcome.Multiline = true;
             txtOutcome.Name = "txtOutcome";
             txtOutcome.ReadOnly = true;
             txtOutcome.ScrollBars = ScrollBars.Both;
-            txtOutcome.Size = new Size(872, 183);
+            txtOutcome.Size = new Size(872, 121);
             txtOutcome.TabIndex = 0;
             // 
             // mainStrip
             // 
             mainStrip.ImageScalingSize = new Size(32, 32);
             mainStrip.Items.AddRange(new ToolStripItem[] { mainStatusLabel });
-            mainStrip.Location = new Point(0, 760);
+            mainStrip.Location = new Point(0, 605);
             mainStrip.Name = "mainStrip";
             mainStrip.Padding = new Padding(1, 0, 16, 0);
             mainStrip.Size = new Size(925, 22);
@@ -229,51 +241,25 @@ namespace Furore.Fhir.ValidationDemo
             // groupBox1
             // 
             groupBox1.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            groupBox1.Controls.Add(chkDisableFP);
-            groupBox1.Controls.Add(chkXsdValidation);
             groupBox1.Controls.Add(btnReload);
             groupBox1.Controls.Add(btnSettings);
             groupBox1.Controls.Add(lblTerminologySvc);
             groupBox1.Controls.Add(label2);
             groupBox1.Controls.Add(lblDefinitionPath);
             groupBox1.Controls.Add(label1);
-            groupBox1.Location = new Point(15, 585);
+            groupBox1.Location = new Point(14, 479);
             groupBox1.Margin = new Padding(4, 3, 4, 3);
             groupBox1.Name = "groupBox1";
             groupBox1.Padding = new Padding(4, 3, 4, 3);
-            groupBox1.Size = new Size(894, 149);
+            groupBox1.Size = new Size(894, 114);
             groupBox1.TabIndex = 1;
             groupBox1.TabStop = false;
             groupBox1.Text = "Settings";
             // 
-            // chkDisableFP
-            // 
-            chkDisableFP.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            chkDisableFP.AutoSize = true;
-            chkDisableFP.Location = new Point(147, 23);
-            chkDisableFP.Margin = new Padding(4, 3, 4, 3);
-            chkDisableFP.Name = "chkDisableFP";
-            chkDisableFP.Size = new Size(150, 19);
-            chkDisableFP.TabIndex = 23;
-            chkDisableFP.Text = "Disable Fhir&Path checks";
-            chkDisableFP.UseVisualStyleBackColor = true;
-            // 
-            // chkXsdValidation
-            // 
-            chkXsdValidation.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            chkXsdValidation.AutoSize = true;
-            chkXsdValidation.Location = new Point(16, 23);
-            chkXsdValidation.Margin = new Padding(4, 3, 4, 3);
-            chkXsdValidation.Name = "chkXsdValidation";
-            chkXsdValidation.Size = new Size(100, 19);
-            chkXsdValidation.TabIndex = 22;
-            chkXsdValidation.Text = "&Xsd validation";
-            chkXsdValidation.UseVisualStyleBackColor = true;
-            // 
             // btnReload
             // 
             btnReload.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            btnReload.Location = new Point(115, 113);
+            btnReload.Location = new Point(115, 78);
             btnReload.Margin = new Padding(4, 3, 4, 3);
             btnReload.Name = "btnReload";
             btnReload.Size = new Size(135, 27);
@@ -285,7 +271,7 @@ namespace Furore.Fhir.ValidationDemo
             // btnSettings
             // 
             btnSettings.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            btnSettings.Location = new Point(14, 113);
+            btnSettings.Location = new Point(14, 78);
             btnSettings.Margin = new Padding(4, 3, 4, 3);
             btnSettings.Name = "btnSettings";
             btnSettings.Size = new Size(88, 27);
@@ -298,7 +284,7 @@ namespace Furore.Fhir.ValidationDemo
             // 
             lblTerminologySvc.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             lblTerminologySvc.AutoSize = true;
-            lblTerminologySvc.Location = new Point(136, 83);
+            lblTerminologySvc.Location = new Point(136, 48);
             lblTerminologySvc.Margin = new Padding(4, 0, 4, 0);
             lblTerminologySvc.Name = "lblTerminologySvc";
             lblTerminologySvc.Size = new Size(68, 15);
@@ -309,7 +295,7 @@ namespace Furore.Fhir.ValidationDemo
             // 
             label2.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             label2.AutoSize = true;
-            label2.Location = new Point(12, 83);
+            label2.Location = new Point(12, 48);
             label2.Margin = new Padding(4, 0, 4, 0);
             label2.Name = "label2";
             label2.Size = new Size(115, 15);
@@ -320,7 +306,7 @@ namespace Furore.Fhir.ValidationDemo
             // 
             lblDefinitionPath.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             lblDefinitionPath.AutoSize = true;
-            lblDefinitionPath.Location = new Point(136, 62);
+            lblDefinitionPath.Location = new Point(136, 27);
             lblDefinitionPath.Margin = new Padding(4, 0, 4, 0);
             lblDefinitionPath.Name = "lblDefinitionPath";
             lblDefinitionPath.Size = new Size(68, 15);
@@ -331,7 +317,7 @@ namespace Furore.Fhir.ValidationDemo
             // 
             label1.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             label1.AutoSize = true;
-            label1.Location = new Point(13, 61);
+            label1.Location = new Point(13, 26);
             label1.Margin = new Padding(4, 0, 4, 0);
             label1.Name = "label1";
             label1.Size = new Size(107, 15);
@@ -349,17 +335,18 @@ namespace Furore.Fhir.ValidationDemo
             AcceptButton = btnValidate;
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(925, 782);
+            ClientSize = new Size(925, 627);
             Controls.Add(groupBox1);
             Controls.Add(mainStrip);
             Controls.Add(instanceBox);
             Controls.Add(groupBox3);
             Margin = new Padding(4, 3, 4, 3);
             Name = "MainForm";
-            Text = "FHIR R4 Profile Validator Demo";
+            Text = "Firely Profile Validator Demo for FHIR R4";
             FormClosed += MainForm_FormClosed;
             Load += MainForm_Load;
             instanceBox.ResumeLayout(false);
+            instanceBox.PerformLayout();
             groupBox3.ResumeLayout(false);
             groupBox3.PerformLayout();
             flowLayoutPanel1.ResumeLayout(false);
@@ -387,8 +374,6 @@ namespace Furore.Fhir.ValidationDemo
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label lblDefinitionPath;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.CheckBox chkDisableFP;
-        private System.Windows.Forms.CheckBox chkXsdValidation;
         private System.Windows.Forms.Button btnLoad;
         private System.Windows.Forms.OpenFileDialog openInstance;
         private System.Windows.Forms.Button btnCopyClipboard;
@@ -396,6 +381,7 @@ namespace Furore.Fhir.ValidationDemo
         private System.Windows.Forms.CheckBox cbErrors;
         private System.Windows.Forms.CheckBox cbWarnings;
         private System.Windows.Forms.CheckBox cbInformation;
+        private CheckBox chkDisableFP;
     }
 }
 

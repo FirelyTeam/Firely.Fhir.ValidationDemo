@@ -1,13 +1,14 @@
-﻿using Firely.Fhir.Validation;
+﻿using Firely.Fhir.Packages;
+using Firely.Fhir.Validation;
 using Firely.Fhir.ValidationDemo.Properties;
 using Hl7.Fhir.Model;
 using Hl7.Fhir.Rest;
 using Hl7.Fhir.Serialization;
+using Hl7.Fhir.Specification;
 using Hl7.Fhir.Specification.Source;
 using Hl7.Fhir.Specification.Terminology;
 using Hl7.Fhir.Support;
 using Hl7.Fhir.Utility;
-using Hl7.Fhir.Validation;
 using System.Diagnostics;
 using System.Reflection;
 
@@ -20,22 +21,32 @@ namespace Furore.Fhir.ValidationDemo
         {
             InitializeComponent();
 
-            // Create a resource resolver that searches for the core resources in 'specification.zip', which comes with the .NET FHIR Specification NuGet package
-            // We create a source that takes its contents from a ZIP file (in this case the default 'specification.zip'). We decorate that source by encapsulating
-            // it in a CachedResolver, which speeds up access by caching conformance resources once we got them from the large files in the ZIP.
-            _coreSource = new CachedResolver(ZipSource.CreateValidationSource());
+            // Create a resource resolver that searches for the core FHIR specification on the simplifier package source.
+            // We decorate that source by encapsulating it in a CachedResolver, which speeds up access by caching conformance
+            // resources once we got them from the large files in the ZIP.
+            var packageSource = FhirPackageSource.CreateCorePackageSource(ModelInfo.ModelInspector, FhirRelease.R4, "https://packages.simplifier.net");
+            _coreSource = new CachedResolver(packageSource);
+
+            _jsonPocoDeserializer = new FhirJsonPocoDeserializer();
+            _xmlPocoDeserializer = new FhirXmlPocoDeserializer();
 
             _settingsForm = new SettingsForm();
 
+            // Set the title of the form to include the version of the validator
             Version version = Assembly.GetExecutingAssembly().GetName().Version ?? new Version("0.0.0");
-            Text = Text + " " + version.Major + "." + version.Minor + " (build " + version.Build + ")"; //change form titl
+            Text += $" (version {version.Major}.{version.Minor}.{version.Build})";
 
-            // Other initializations are done on the form_load
+            // Init databindings between controls and settings
+            chkDisableFP.DataBindings.Add(new Binding("Checked", Settings.Default, "DisableFP", true, DataSourceUpdateMode.OnPropertyChanged));
+            txtInstance.DataBindings.Add(new Binding("Text", Settings.Default, "InstanceText", true, DataSourceUpdateMode.OnPropertyChanged));
         }
 
         private readonly IAsyncResourceResolver _coreSource;
         private Validator? _validator;
         private readonly SettingsForm _settingsForm;
+
+        private readonly FhirJsonPocoDeserializer _jsonPocoDeserializer;
+        private readonly FhirXmlPocoDeserializer _xmlPocoDeserializer;
 
         private void BtnReload_Click(object sender, EventArgs e) => _validator = RebuildValidator();
 
@@ -57,11 +68,14 @@ namespace Furore.Fhir.ValidationDemo
 
         private Validator RebuildValidator()
         {
-            var profileSource = RefreshProfileSource(_settingsForm.ProfileDirectory is { } pd ?
-                new DirectoryInfo(pd) : null, _settingsForm.RegenerateSnapshots);
+            var profileSource = RefreshProfileSource(GetProfileDirectory(), Settings.Default.RegenerateSnapshot);
             var terminologySource = RefreshTerminologySource(profileSource);
-            return new Validator(terminologySource, profileSource, null);
+            return new Validator(profileSource, terminologySource, null);
         }
+
+        private static DirectoryInfo? GetProfileDirectory() => !string.IsNullOrEmpty(Settings.Default.ProfileSourceDirectory)
+                ? new DirectoryInfo(Settings.Default.ProfileSourceDirectory)
+                : null;
 
 
         private OperationOutcome? _lastOutcome;
@@ -120,15 +134,15 @@ namespace Furore.Fhir.ValidationDemo
         {
             SetOutcome(null);
 
-            if (string.IsNullOrEmpty(txtInstance.Text))
+            if (string.IsNullOrEmpty(Settings.Default.InstanceText))
             {
-                MessageBox.Show($"Please provide a FHIR instance in the {instanceBox.Text} textbox above");
+                MessageBox.Show($"Please provide a FHIR instance in the textbox above.");
                 return;
             }
 
             if (InstanceFormat == ResourceFormat.Unknown)
             {
-                MessageBox.Show($"The {instanceBox.Text} textbox above does not contain xml or json");
+                MessageBox.Show($"The textbox above does not contain xml or json.");
                 return;
             }
 
@@ -143,16 +157,14 @@ namespace Furore.Fhir.ValidationDemo
                 // Configure the validator based on the user's settings
                 // This includes a reference to the resolver that we have constructed in previous methods
                 // and which helps the validator to look for profiles
-                _validator!.SkipConstraintValidation = chkDisableFP.Checked;
-                _validator.
-
-                // settings.EnableXsdValidation = chkXsdValidation.Checked;
-                settings.ResolveExteralReferences = true;
+                _validator!.SkipConstraintValidation = Settings.Default.DisableFP;
+                _validator.ResolveExternalReference =
+                    GetProfileDirectory() is { } pd ? new FileBasedExternalReferenceResolver(pd) : null;
 
                 var poco = InstanceFormat switch
                 {
-                    ResourceFormat.Xml => (new FhirXmlParser()).Parse<Resource>(txtInstance.Text),
-                    ResourceFormat.Json => (new FhirJsonParser()).Parse<Resource>(txtInstance.Text),
+                    ResourceFormat.Xml => _xmlPocoDeserializer.DeserializeResource(Settings.Default.InstanceText),
+                    ResourceFormat.Json => _jsonPocoDeserializer.DeserializeResource(Settings.Default.InstanceText),
                     _ => throw new InvalidOperationException("Unknown format")
                 };
 
@@ -164,10 +176,23 @@ namespace Furore.Fhir.ValidationDemo
                 SetOutcome(result.ToOperationOutcome());
                 ShowStatusMessage($"Validation finished in {sw.ElapsedMilliseconds} milliseconds");
             }
+            catch (DeserializationFailedException fe)
+            {
+                var caption = $"Failed to parse instance text";
+                MessageBox.Show(fe.Message, caption, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                ShowStatusMessage($"Validation aborted - {caption}.");
+            }
+            catch (SchemaResolutionFailedException sfe)
+            {
+                var caption = $"Failed to load profile {sfe.SchemaUri}";
+                MessageBox.Show(sfe.Message, caption, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                ShowStatusMessage($"Validation aborted - {caption}.");
+            }
             catch (Exception ex)
             {
-                MessageBox.Show($"{ex.GetType().Name}: {ex.Message}");
-                ShowStatusMessage("Validation failed with an exception.");
+                var caption = $"An unexpected {ex.GetType()} exception was caught";
+                MessageBox.Show(ex.Message, caption, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                ShowStatusMessage($"Validation aborted - {caption}.");
             }
             finally
             {
@@ -189,7 +214,8 @@ namespace Furore.Fhir.ValidationDemo
                     {
                         // We not only have a source for core data, we also read data from a user-specified directory. We also cache the contents of this source, like
                         // we did with the CoreSource above.
-                        var directorySource = new CachedResolver(new DirectorySource(profileDirectory.FullName, new DirectorySourceSettings { IncludeSubDirectories = true }));
+                        var directorySource = new CachedResolver(new DirectorySource(profileDirectory.FullName,
+                            new DirectorySourceSettings { IncludeSubDirectories = true }));
 
                         // Finally, we combine both sources, so we will find profiles both from the core zip as well as from the directory.
                         // By mentioning the directory source first, anything in the user directory will override what is in the core zip.
@@ -229,14 +255,14 @@ namespace Furore.Fhir.ValidationDemo
         {
             ITerminologyService terminologySource = new LocalTerminologyService(resolver);
             setTX("Built-in terminology service");
-            var extTS = _settingsForm.TerminologyServer;
+            var extTS = Settings.Default.TerminologyService;
 
             if (!string.IsNullOrEmpty(extTS))
             {
                 terminologySource = new ExternalTerminologyService(new FhirClient(extTS));
                 setTX($"Terminology service at {extTS}");
 
-                if (_settingsForm.UseBuiltinTx)
+                if (Settings.Default.UseBuiltInTX)
                 {
                     var local = new LocalTerminologyService(resolver);
                     terminologySource = new FallbackTerminologyService(local, terminologySource);
@@ -248,7 +274,6 @@ namespace Furore.Fhir.ValidationDemo
 
             void setTX(string label) => lblTerminologySvc.Text = label;
         }
-
 
         public void ShowStatusMessage(string? message = null)
         {

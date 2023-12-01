@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             groupBox1 = new GroupBox();
+            chkGenSnapshot = new CheckBox();
             label2 = new Label();
             btnOpenProfileDir = new Button();
             txtProfileDirectory = new TextBox();
@@ -38,7 +39,6 @@
             groupBox2 = new GroupBox();
             cbEnableBuiltIn = new CheckBox();
             cbxTermServers = new ComboBox();
-            chkGenSnapshot = new CheckBox();
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
             SuspendLayout();
@@ -55,10 +55,22 @@
             groupBox1.Margin = new Padding(4, 3, 4, 3);
             groupBox1.Name = "groupBox1";
             groupBox1.Padding = new Padding(4, 3, 4, 3);
-            groupBox1.Size = new Size(744, 170);
+            groupBox1.Size = new Size(744, 169);
             groupBox1.TabIndex = 1;
             groupBox1.TabStop = false;
             groupBox1.Text = "Profile source directory";
+            // 
+            // chkGenSnapshot
+            // 
+            chkGenSnapshot.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            chkGenSnapshot.AutoSize = true;
+            chkGenSnapshot.Location = new Point(10, 133);
+            chkGenSnapshot.Margin = new Padding(4, 3, 4, 3);
+            chkGenSnapshot.Name = "chkGenSnapshot";
+            chkGenSnapshot.Size = new Size(141, 19);
+            chkGenSnapshot.TabIndex = 25;
+            chkGenSnapshot.Text = "Regenerate snapshots";
+            chkGenSnapshot.UseVisualStyleBackColor = true;
             // 
             // label2
             // 
@@ -111,7 +123,7 @@
             // 
             btnOK.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             btnOK.DialogResult = DialogResult.OK;
-            btnOK.Location = new Point(643, 330);
+            btnOK.Location = new Point(643, 322);
             btnOK.Margin = new Padding(4, 3, 4, 3);
             btnOK.Name = "btnOK";
             btnOK.Size = new Size(117, 35);
@@ -157,23 +169,11 @@
             cbxTermServers.TabIndex = 0;
             cbxTermServers.Leave += CbxTermServers_Leave;
             // 
-            // chkGenSnapshot
-            // 
-            chkGenSnapshot.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            chkGenSnapshot.AutoSize = true;
-            chkGenSnapshot.Location = new Point(10, 145);
-            chkGenSnapshot.Margin = new Padding(4, 3, 4, 3);
-            chkGenSnapshot.Name = "chkGenSnapshot";
-            chkGenSnapshot.Size = new Size(141, 19);
-            chkGenSnapshot.TabIndex = 25;
-            chkGenSnapshot.Text = "Regenerate snapshots";
-            chkGenSnapshot.UseVisualStyleBackColor = true;
-            // 
             // SettingsForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(774, 375);
+            ClientSize = new Size(774, 367);
             Controls.Add(groupBox2);
             Controls.Add(btnOK);
             Controls.Add(groupBox1);

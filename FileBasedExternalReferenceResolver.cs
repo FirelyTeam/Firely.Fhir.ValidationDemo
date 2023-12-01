@@ -1,12 +1,13 @@
 ﻿using Firely.Fhir.Validation;
 using Hl7.Fhir.Rest;
 using Hl7.Fhir.Serialization;
-using M = Hl7.Fhir.Model;
 
 namespace Furore.Fhir.ValidationDemo
 {
     public class FileBasedExternalReferenceResolver(DirectoryInfo baseDirectory) : IExternalReferenceResolver
     {
+        private FhirXmlPocoDeserializer XmlPocoDeserializer { get; } = new FhirXmlPocoDeserializer();
+
         public DirectoryInfo BaseDirectory { get; private set; } = baseDirectory;
 
         public Task<object?> ResolveAsync(string reference)
@@ -22,7 +23,7 @@ namespace Furore.Fhir.ValidationDemo
                 var xml = File.ReadAllText(path);
 
                 // Note, this will throw if the file is not really FHIR xml
-                var poco = (new FhirXmlParser()).Parse<M.Resource>(xml);
+                var poco = XmlPocoDeserializer.DeserializeResource(xml);
 
                 return Task.FromResult<object?>(poco);
             }

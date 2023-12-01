@@ -38,12 +38,12 @@ namespace Firely.Fhir.ValidationDemo.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string InstanceXml {
+        public string InstanceText {
             get {
-                return ((string)(this["InstanceXml"]));
+                return ((string)(this["InstanceText"]));
             }
             set {
-                this["InstanceXml"] = value;
+                this["InstanceText"] = value;
             }
         }
         
@@ -73,37 +73,13 @@ namespace Firely.Fhir.ValidationDemo.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("http://ontoserver.csiro.au/stu3-latest|http://tx.fhir.org/r3")]
+        [global::System.Configuration.DefaultSettingValueAttribute("https://r4.ontoserver.csiro.au/fhir|https://tx.fhir.org/r4")]
         public string TerminologyServiceList {
             get {
                 return ((string)(this["TerminologyServiceList"]));
             }
             set {
                 this["TerminologyServiceList"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("False")]
-        public bool EnableTrace {
-            get {
-                return ((bool)(this["EnableTrace"]));
-            }
-            set {
-                this["EnableTrace"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("False")]
-        public bool DoXsdValidation {
-            get {
-                return ((bool)(this["DoXsdValidation"]));
-            }
-            set {
-                this["DoXsdValidation"] = value;
             }
         }
         
