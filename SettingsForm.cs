@@ -29,20 +29,6 @@ namespace Furore.Fhir.ValidationDemo
                 txtProfileDirectory.Text = folderBrowserDialog.SelectedPath;
         }
 
-        ////public DirectoryInfo? ProfileDirectory => !string.IsNullOrEmpty(txtProfileDirectory.Text) ?
-        ////    new DirectoryInfo(txtProfileDirectory.Text) : null;
-
-        //public DirectoryInfo? ProfileDirectory => !string.IsNullOrEmpty(Settings.Default.ProfileSourceDirectory) ?
-        //    new DirectoryInfo(Settings.Default.ProfileSourceDirectory) : null;
-
-        ////public string TerminologyServer => cbxTermServers.Text;
-
-        //public string TerminologyServer => Settings.Default.TerminologyService;
-
-        //public bool UseBuiltinTx => cbEnableBuiltIn.Checked;
-
-        //public bool RegenerateSnapshots => chkGenSnapshot.Checked;
-
         private void CbxTermServers_Leave(object sender, EventArgs e)
         {
             var newSelection = cbxTermServers.Text;
