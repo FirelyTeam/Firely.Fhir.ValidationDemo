@@ -4,7 +4,9 @@
     <lastUpdated value="2016-10-05T18:35:38.499+02:00" />
   </meta>
   <text>
-    <status value="empty" /><div xmlns="http://www.w3.org/1999/xhtml" /></text>
+    <status value="empty" />
+    <div xmlns="http://www.w3.org/1999/xhtml" />
+  </text>
   <url value="http://example.org/StructureDefinition/WeightHeightObservation" />
   <name value="WeightHeightObservation" />
   <status value="draft" />
@@ -29,7 +31,7 @@
       <type>
         <code value="Quantity" />
         <profile value="http://example.org/StructureDefinition/WeightQuantity" />
-		<profile value="http://example.org/StructureDefinition/HeightQuantity" />
+        <profile value="http://example.org/StructureDefinition/HeightQuantity" />
       </type>
       <maxLength value="5" />
     </element>
