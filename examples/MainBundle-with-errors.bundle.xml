@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- 
+
+This is the outcome of validation as run on 2023-12-11
+
+Overall result: FAILURE
+[ERROR] Instance failed constraint bdl-1 "total only when a search or history" (at [0], element Bundle(http://example.org/StructureDefinition/DocumentBundle))
+[ERROR] Instance count is 1, which is not within the specified cardinality of 0..0 (at [0].total, element Bundle(http://example.org/StructureDefinition/DocumentBundle).total)
+[WARNING] Unable to resolve reference to extension 'http://hl7.org/fhir/StructureDefinition/birthPlace'. (at [0].extension)
+[WARNING] Unable to resolve reference to extension 'http://hl7.org/fhir/StructureDefinition/patient-clinicalTrial'. (at [0].extension)
+[ERROR] Encountered a reference (http://example.org/fhir/Practitioner/Hippocrates) of kind 'Referenced', which is not one of the allowed kinds (Bundled). (at [0].entry[0].resource[0].author[0], element Bundle(http://example.org/StructureDefinition/DocumentBundle).entry.resource->Composition(http://example.org/StructureDefinition/DocumentComposition).author)
+[ERROR] Element does not validate against any of the expected profiles (http://example.org/StructureDefinition/WeightQuantity, http://example.org/StructureDefinition/HeightQuantity). (at Bundle.entry[1].resource[0].valueQuantity[0], element Bundle(http://example.org/StructureDefinition/DocumentBundle).entry.resource->Composition(http://example.org/StructureDefinition/DocumentComposition).section.entry->Observation.value[x][Quantity])
+[ERROR] Value '75600' is larger than 200) (at Bundle.entry[1].resource[0].valueQuantity[0].value[0], element Bundle(http://example.org/StructureDefinition/DocumentBundle).entry.resource->Composition(http://example.org/StructureDefinition/DocumentComposition).section.entry->Observation.value[x][Quantity]->Quantity(http://example.org/StructureDefinition/WeightQuantity).value)
+[ERROR] Value 'http://unitsofmeasurex.org' is not exactly equal to fixed value 'http://unitsofmeasure.org' (at Bundle.entry[1].resource[0].valueQuantity[0].system[0], element Bundle(http://example.org/StructureDefinition/DocumentBundle).entry.resource->Composition(http://example.org/StructureDefinition/DocumentComposition).section.entry->Observation.value[x][Quantity]->Quantity(http://example.org/StructureDefinition/WeightQuantity).system)
+[ERROR] Value 'g' is not exactly equal to fixed value 'kg' (at Bundle.entry[1].resource[0].valueQuantity[0].code[0], element Bundle(http://example.org/StructureDefinition/DocumentBundle).entry.resource->Composition(http://example.org/StructureDefinition/DocumentComposition).section.entry->Observation.value[x][Quantity]->Quantity(http://example.org/StructureDefinition/WeightQuantity).code)
+[ERROR] Value '75600' is larger than 350) (at Bundle.entry[1].resource[0].valueQuantity[0].value[0], element Bundle(http://example.org/StructureDefinition/DocumentBundle).entry.resource->Composition(http://example.org/StructureDefinition/DocumentComposition).section.entry->Observation.value[x][Quantity]->Quantity(http://example.org/StructureDefinition/HeightQuantity).value)
+[ERROR] Value 'http://unitsofmeasurex.org' is not exactly equal to fixed value 'http://unitsofmeasure.org' (at Bundle.entry[1].resource[0].valueQuantity[0].system[0], element Bundle(http://example.org/StructureDefinition/DocumentBundle).entry.resource->Composition(http://example.org/StructureDefinition/DocumentComposition).section.entry->Observation.value[x][Quantity]->Quantity(http://example.org/StructureDefinition/HeightQuantity).system)
+[ERROR] Value 'g' is not exactly equal to fixed value 'cm' (at Bundle.entry[1].resource[0].valueQuantity[0].code[0], element Bundle(http://example.org/StructureDefinition/DocumentBundle).entry.resource->Composition(http://example.org/StructureDefinition/DocumentComposition).section.entry->Observation.value[x][Quantity]->Quantity(http://example.org/StructureDefinition/HeightQuantity).code)
+[ERROR] Element is of type 'boolean', which is not one of the allowed choice types ('string','Quantity') (at Bundle.entry[2].resource[0].valueBoolean[0], element Bundle(http://example.org/StructureDefinition/DocumentBundle).entry.resource->Composition(http://example.org/StructureDefinition/DocumentComposition).section.entry->Observation.value[x][@default])
+[WARNING] Code '10154-3' from system 'http://loinc.org' has incorrect display 'Hoofdklacht', should be 'Chief complaint' (at [0].entry[0].resource[0].section[2].code[0], element Bundle(http://example.org/StructureDefinition/DocumentBundle).entry.resource->Composition(http://example.org/StructureDefinition/DocumentComposition).section.code)
+[ERROR] Value 'Misc internal annotations' is too long (maximum length is 20 (at [0].entry[0].resource[0].section[4].title[0], element Bundle(http://example.org/StructureDefinition/DocumentBundle).entry.resource->Composition(http://example.org/StructureDefinition/DocumentComposition).section.title)
+[ERROR] Code 'internal notes' from system 'http://example.org/fhir/demo-section-titles' does not exist in the value set 'MainBundle Section title codes' (http://example.org/ValueSet/SectionTitles) (at [0].entry[0].resource[0].section[4].code[0], element Bundle(http://example.org/StructureDefinition/DocumentBundle).entry.resource->Composition(http://example.org/StructureDefinition/DocumentComposition).section.code)
+[ERROR] Instance count is 2, which is not within the specified cardinality of 1..1 (at [0].entry[0].resource[0].section, element Bundle(http://example.org/StructureDefinition/DocumentBundle).entry.resource->Composition(http://example.org/StructureDefinition/DocumentComposition).section[vitalSigns])
+[ERROR] Element does not validate against any of the expected profiles (http://example.org/StructureDefinition/WeightQuantity, http://example.org/StructureDefinition/HeightQuantity). (at [0].entry[1].resource[0].valueQuantity[0], element Bundle(http://example.org/StructureDefinition/DocumentBundle).entry.resource->Observation.value[x][Quantity])
+[ERROR] Value '75600' is larger than 200) (at [0].entry[1].resource[0].valueQuantity[0].value[0], element Bundle(http://example.org/StructureDefinition/DocumentBundle).entry.resource->Observation.value[x][Quantity]->Quantity(http://example.org/StructureDefinition/WeightQuantity).value)
+[ERROR] Value 'http://unitsofmeasurex.org' is not exactly equal to fixed value 'http://unitsofmeasure.org' (at [0].entry[1].resource[0].valueQuantity[0].system[0], element Bundle(http://example.org/StructureDefinition/DocumentBundle).entry.resource->Observation.value[x][Quantity]->Quantity(http://example.org/StructureDefinition/WeightQuantity).system)
+[ERROR] Value 'g' is not exactly equal to fixed value 'kg' (at [0].entry[1].resource[0].valueQuantity[0].code[0], element Bundle(http://example.org/StructureDefinition/DocumentBundle).entry.resource->Observation.value[x][Quantity]->Quantity(http://example.org/StructureDefinition/WeightQuantity).code)
+[ERROR] Value '75600' is larger than 350) (at [0].entry[1].resource[0].valueQuantity[0].value[0], element Bundle(http://example.org/StructureDefinition/DocumentBundle).entry.resource->Observation.value[x][Quantity]->Quantity(http://example.org/StructureDefinition/HeightQuantity).value)
+[ERROR] Value 'http://unitsofmeasurex.org' is not exactly equal to fixed value 'http://unitsofmeasure.org' (at [0].entry[1].resource[0].valueQuantity[0].system[0], element Bundle(http://example.org/StructureDefinition/DocumentBundle).entry.resource->Observation.value[x][Quantity]->Quantity(http://example.org/StructureDefinition/HeightQuantity).system)
+[ERROR] Value 'g' is not exactly equal to fixed value 'cm' (at [0].entry[1].resource[0].valueQuantity[0].code[0], element Bundle(http://example.org/StructureDefinition/DocumentBundle).entry.resource->Observation.value[x][Quantity]->Quantity(http://example.org/StructureDefinition/HeightQuantity).code)
+[ERROR] Element is of type 'boolean', which is not one of the allowed choice types ('string','Quantity') (at [0].entry[2].resource[0].valueBoolean[0], element Bundle(http://example.org/StructureDefinition/DocumentBundle).entry.resource->Observation.value[x][@default])
+
+-->
+
+<Bundle xmlns="http://hl7.org/fhir">
+    <id value="MainBundle"/>
+    <meta>
+        <profile value="http://example.org/StructureDefinition/DocumentBundle"/>
+    </meta>
+    <identifier>
+        <system value="urn:ietf:rfc:3986"/>
+        <value value="urn:uuid:0c3151bd-1cbf-4d64-b04d-cd9187a4c6e1"/>
+    </identifier>
+    <type value="document"/>
+    <timestamp value="2013-05-28T22:12:21Z"/>
+    <total value="1" />
+    <entry>
+        <fullUrl value="http://example.org/fhir/Composition/MainBundle"/>
+        <resource>
+            <Composition xmlns="http://hl7.org/fhir">
+                <id value="MainComposition"/>
+                <meta>
+                    <profile value="http://example.org/StructureDefinition/DocumentComposition"/>
+                </meta>
+                <status value="final"/>
+                <type>
+                    <coding>
+                        <system value="http://loinc.org"/>
+                        <code value="18842-5"/>
+                    </coding>
+                    <coding>
+                        <system value="http://loinc.org"/>
+                        <code value="8716-3"/>
+                    </coding>
+                </type>
+                <subject>
+                    <reference value="http://example.org/fhir/Patient/Levin"/>
+                </subject>
+                <date value="2016-10-06"/>
+                <author>
+                    <reference value="http://example.org/fhir/Practitioner/Hippocrates"/>
+                </author>
+                <title value="A document with observations"/>
+
+                <section>
+                    <title value="List of observations"/>
+                    <code>
+                        <coding>
+                            <system value="http://loinc.org"/>
+                            <code value="8716-3"/>
+                            <display value="Vital signs" />
+                        </coding>
+                    </code>
+                    <entry>
+                        <reference value="http://example.org/fhir/Observation/Weight-errors"/>
+                    </entry>
+                </section>
+
+
+                <section>
+                    <title value="List of observations"/>
+                    <code>
+                        <coding>
+                            <system value="http://loinc.org"/>
+                            <code value="8716-3"/>
+                            <display value="Vital signs" />
+                        </coding>
+                    </code>
+                    <entry>
+                        <reference value="http://example.org/fhir/Observation/Clothing"/>
+                    </entry>
+                </section>
+
+                <section>
+                    <title value="Chief Complaint"/>
+                    <code>
+                        <coding>
+                            <system value="http://loinc.org"/>
+                            <code value="10154-3"/>
+                            <display value="Hoofdklacht" />
+                        </coding>
+
+                    </code>
+                    <text>
+                        <status value="additional"/>
+                        <div xmlns="http://www.w3.org/1999/xhtml">
+							No structured data to test here.
+                        </div>
+                    </text>
+                </section>
+
+                <section>
+                    <title value="Misc annotations"/>
+                    <code>
+                        <coding>
+                            <system value="http://example.org/fhir/demo-section-titles"/>
+                            <code value="notes"/>
+                        </coding>
+                    </code>
+                    <text>
+                        <status value="additional"/>
+                        <div xmlns="http://www.w3.org/1999/xhtml">
+							Next time, give the patient some coffee and ask about children.
+                        </div>
+                    </text>
+                </section>
+
+                <section>
+                    <title value="Misc internal annotations"/>
+                    <code>
+                        <coding>
+                            <system value="http://example.org/fhir/demo-section-titles"/>
+                            <code value="internal notes"/>
+                        </coding>
+                    </code>
+                    <text>
+                        <status value="additional"/>
+                        <div xmlns="http://www.w3.org/1999/xhtml">
+							Can't stand the man.
+                        </div>
+                    </text>
+                </section>
+
+            </Composition>
+        </resource>
+    </entry>
+    <entry>
+        <fullUrl value="http://example.org/fhir/Observation/Weight-errors"/>
+        <resource>
+            <Observation xmlns="http://hl7.org/fhir">
+                <id value="Weight"/>
+                <meta>
+                    <profile value="http://example.org/StructureDefinition/WeightHeightObservation" />
+                </meta>
+                <!--    the mandatory quality flags:    -->
+                <text>
+                    <status value="generated"/>
+                    <div xmlns="http://www.w3.org/1999/xhtml">skipped</div>
+                </text>
+                <status value="final"/>
+                <category>
+                    <coding>
+                        <system value="http://hl7.org/fhir/observation-category"/>
+                        <code value="vital-signs"/>
+                        <display value="Vital Signs"/>
+                    </coding>
+                </category>
+                <code>
+                    <coding>
+                        <system value="http://loinc.org"/>
+                        <code value="3141-9"/>
+                        <display value="Weight Measured"/>
+                    </coding>
+                    <!--    SNOMED CT Codes - becoming more common    -->
+                    <coding>
+                        <system value="http://snomed.info/sct"/>
+                        <code value="27113001"/>
+                        <display value="Body weight"/>
+                    </coding>
+                    <!--    Also, a local code specific to the source system    -->
+                    <coding>
+                        <system value="http://acme.org/devices/clinical-codes"/>
+                        <code value="body-weight"/>
+                        <display value="Body Weight"/>
+                    </coding>
+                </code>
+                <subject>
+                    <reference value="http://example.org/fhir/Patient/Levin"/>
+                </subject>
+                <!--    In FHIR, units may be represented twice. Once in the
+    agreed human representation, and once in a coded form.
+    Both is best, since it's not always possible to infer
+    one from the other in code.
+    
+    When a computable unit is provided, UCUM (http://unitsofmeasure.org)
+    is always preferred, but it doesn't provide notional units (such as
+    "tablet"), etc. For these, something else is required (e.g. SNOMED CT)
+      -->
+                <valueQuantity>
+                    <value value="75600"/>
+                    <unit value="g"/>
+                    <system value="http://unitsofmeasurex.org"/>
+                    <code value="g"/>
+                </valueQuantity>
+            </Observation>
+        </resource>
+    </entry>
+    <entry>
+        <fullUrl value="http://example.org/fhir/Observation/Clothing"/>
+        <resource>
+            <Observation xmlns="http://hl7.org/fhir">
+                <id value="Clothing"/>
+                <meta>
+                    <profile value="http://example.org/StructureDefinition/WeightHeightObservation" />
+                </meta>
+                <!--    the mandatory quality flags:    -->
+                <text>
+                    <status value="generated"/>
+                    <div xmlns="http://www.w3.org/1999/xhtml">skipped</div>
+                </text>
+                <status value="final"/>
+                <category>
+                    <coding>
+                        <system value="http://hl7.org/fhir/observation-category"/>
+                        <code value="vital-signs"/>
+                        <display value="Vital Signs"/>
+                    </coding>
+                </category>
+                <code>
+                    <coding>
+                        <system value="http://loinc.org"/>
+                        <code value="8352-7"/>
+                        <display value="Clothing worn during measure"/>
+                    </coding>
+                </code>
+                <subject>
+                    <reference value="http://example.org/fhir/Patient/Levin"/>
+                </subject>
+                <valueBoolean value="false" />
+            </Observation>
+        </resource>
+    </entry>
+</Bundle>

@@ -1,13 +1,5 @@
-﻿using Furore.Fhir.ValidationDemo.Properties;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
+﻿using Firely.Fhir.ValidationDemo.Properties;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace Furore.Fhir.ValidationDemo
 {
@@ -19,9 +11,14 @@ namespace Furore.Fhir.ValidationDemo
 
             var txServers = Settings.Default.TerminologyServiceList.Split('|').Select(s => s.Trim());
             cbxTermServers.Items.AddRange(txServers.ToArray());
+
+            cbxTermServers.DataBindings.Add(new Binding("Text", Settings.Default, "TerminologyService", true, DataSourceUpdateMode.OnPropertyChanged));
+            txtProfileDirectory.DataBindings.Add(new Binding("Text", Settings.Default, "ProfileSourceDirectory", true, DataSourceUpdateMode.OnPropertyChanged));
+            cbEnableBuiltIn.DataBindings.Add(new Binding("Checked", Settings.Default, "UseBuiltInTX", true, DataSourceUpdateMode.OnPropertyChanged));
+            chkGenSnapshot.DataBindings.Add(new Binding("Checked", Settings.Default, "RegenerateSnapshot", true, DataSourceUpdateMode.OnPropertyChanged));
         }
 
-        private void btnOpenProfileDir_Click(object sender, EventArgs e)
+        private void BtnOpenProfileDir_Click(object sender, EventArgs e)
         {
             if (!String.IsNullOrEmpty(txtProfileDirectory.Text))
                 folderBrowserDialog.SelectedPath = txtProfileDirectory.Text;
@@ -32,21 +29,17 @@ namespace Furore.Fhir.ValidationDemo
                 txtProfileDirectory.Text = folderBrowserDialog.SelectedPath;
         }
 
-        public string ProfileDirectory => txtProfileDirectory.Text;
-
-        public string TerminologyServer => cbxTermServers.Text;
-
-        public bool UseBuiltinTx => cbEnableBuiltIn.Checked;
-
-        private void cbxTermServers_Leave(object sender, EventArgs e)
+        private void CbxTermServers_Leave(object sender, EventArgs e)
         {
             var newSelection = cbxTermServers.Text;
-            if (String.IsNullOrEmpty(newSelection)) return;
+            if (string.IsNullOrEmpty(newSelection)) return;
 
             if (!cbxTermServers.Items.OfType<string>().Contains(newSelection))
                 cbxTermServers.Items.Add(newSelection);
 
-            Settings.Default.TerminologyServiceList = String.Join("|", cbxTermServers.Items.OfType<string>());
+            Settings.Default.TerminologyServiceList = string.Join("|", cbxTermServers.Items.OfType<string>());
         }
     }
 }
+
+

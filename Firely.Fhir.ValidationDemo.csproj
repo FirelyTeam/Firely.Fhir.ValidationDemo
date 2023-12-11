@@ -1,0 +1,49 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+	<PropertyGroup>
+		<OutputType>WinExe</OutputType>
+		<TargetFramework>net8.0-windows</TargetFramework>
+		<Nullable>enable</Nullable>
+		<UseWindowsForms>true</UseWindowsForms>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Version>2.0.0</Version>
+	</PropertyGroup>
+
+	<PropertyGroup>
+		<Authors>Firely</Authors>
+		<Company>Firely (https://fire.ly)</Company>
+		<Copyright>Copyright 2015-2023 Firely</Copyright>
+		<RepositoryUrl>https://github.com/FirelyTeam/Furore.Fhir.ValidationDemo</RepositoryUrl>
+		<Title>Firely Profile Validator Demo</Title>
+		<Description>Demo application showcasing the profile validation capabilities of the SDK.</Description>
+		<PackageTags>HL7;FHIR;Validation;Demo</PackageTags>
+	</PropertyGroup>
+
+	<ItemGroup>
+	  <Compile Remove="old version\**" />
+	  <EmbeddedResource Remove="old version\**" />
+	  <None Remove="old version\**" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Firely.Fhir.Packages" Version="4.2.0" />
+		<PackageReference Include="Firely.Fhir.Validation" Version="1.2.0-alpha5-20231211.14" />
+		<PackageReference Include="Firely.Fhir.Validation.R4" Version="1.2.0-alpha5-20231211.14" />
+		<PackageReference Include="Hl7.Fhir.R4" Version="5.4.1-20231211.2" />
+		<PackageReference Include="Hl7.Fhir.Conformance" Version="5.4.1-20231211.2" />
+	</ItemGroup>
+	
+	<ItemGroup>
+
+		<Compile Update="Properties\Settings.Designer.cs">
+			<DesignTimeSharedInput>True</DesignTimeSharedInput>
+			<AutoGen>True</AutoGen>
+			<DependentUpon>Settings.settings</DependentUpon>
+		</Compile>
+	</ItemGroup>
+	<ItemGroup>
+		<None Update="Properties\Settings.settings">
+			<Generator>SettingsSingleFileGenerator</Generator>
+			<LastGenOutput>Settings.Designer.cs</LastGenOutput>
+		</None>
+	</ItemGroup>
+</Project>
