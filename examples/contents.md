@@ -2,9 +2,10 @@ This examples directory contains several (xml) data files that make up a fictitu
 
 ### Example instance data
 * `MainBundle.bundle.xml` - a FHIR `Bundle` that represents a document, with two sections (Vital signs and Additional notes), plus a Practitioner instance ("Hippocrates"). 
+* `MainBundle-errors.bundle.xml` - a FHIR `Bundle` that represents the same document, but then with a lot of errors in the instance. 
 * `Hippocrates.practitioner.xml` - The same data as the Hippocrates included in the Bundle, but then as a separate resource.
 * `Levin.patient.xml` - A FHIR `Patient` (Henri Levin), that is referenced from the Bundle.
-* `Weight.observation.xml` - A body weight FHIR `Observation`
+* `Weight.observation.xml` - A body weight FHIR `Observation`, that is referenced from the Bundle.
 
 Each of these resources declare their conformance to one of the profiles defined below using the `Meta.profile` construct.
 
