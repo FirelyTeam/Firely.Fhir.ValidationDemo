@@ -43,6 +43,7 @@ namespace Furore.Fhir.ValidationDemo
 
         private readonly IAsyncResourceResolver _coreSource;
         private Validator? _validator;
+
         private readonly SettingsForm _settingsForm;
 
         private readonly FhirJsonPocoDeserializer _jsonPocoDeserializer;
@@ -70,7 +71,10 @@ namespace Furore.Fhir.ValidationDemo
         {
             var profileSource = RefreshProfileSource(GetProfileDirectory(), Settings.Default.RegenerateSnapshot);
             var terminologySource = RefreshTerminologySource(profileSource);
-            return new Validator(profileSource, terminologySource, null);
+            var externalReferenceResolver = GetProfileDirectory() is { } pd ?
+                new FileBasedExternalReferenceResolver(pd) : null;
+
+            return new Validator(profileSource, terminologySource, externalReferenceResolver);
         }
 
         private static DirectoryInfo? GetProfileDirectory() => !string.IsNullOrEmpty(Settings.Default.ProfileSourceDirectory)
@@ -158,8 +162,6 @@ namespace Furore.Fhir.ValidationDemo
                 // This includes a reference to the resolver that we have constructed in previous methods
                 // and which helps the validator to look for profiles
                 _validator!.SkipConstraintValidation = Settings.Default.DisableFP;
-                _validator.ResolveExternalReference =
-                    GetProfileDirectory() is { } pd ? new FileBasedExternalReferenceResolver(pd) : null;
 
                 var poco = InstanceFormat switch
                 {
@@ -173,7 +175,7 @@ namespace Furore.Fhir.ValidationDemo
                 sw.Stop();
 
                 // The validator generates an OperationOutcome as output;                
-                SetOutcome(result.ToOperationOutcome());
+                SetOutcome(result);
                 ShowStatusMessage($"Validation finished in {sw.ElapsedMilliseconds} milliseconds");
             }
             catch (DeserializationFailedException fe)

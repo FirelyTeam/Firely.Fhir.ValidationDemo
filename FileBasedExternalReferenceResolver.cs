@@ -10,8 +10,12 @@ namespace Furore.Fhir.ValidationDemo
 
         public DirectoryInfo BaseDirectory { get; private set; } = baseDirectory;
 
+        public bool Enabled { get; set; } = true;
+
         public Task<object?> ResolveAsync(string reference)
         {
+            if (!Enabled) return Task.FromResult<object?>(null);
+
             // Now, for our examples we've used the convention that the file can be found in the
             // example directory, with the name <id>.<type>.xml, so let's try to get that file.
             var identity = new ResourceIdentity(reference);

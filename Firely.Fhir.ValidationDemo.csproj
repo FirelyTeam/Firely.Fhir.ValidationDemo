@@ -26,9 +26,10 @@
 
 	<ItemGroup>
 		<PackageReference Include="Firely.Fhir.Packages" Version="4.2.0" />
-		<PackageReference Include="Firely.Fhir.Validation" Version="1.2.0-alpha5" />
-		<PackageReference Include="Firely.Fhir.Validation.R4" Version="1.2.0-alpha5" />
-		<PackageReference Include="Hl7.Fhir.R4" Version="5.4.3-alpha1" />
+		<PackageReference Include="Firely.Fhir.Validation" Version="1.2.0-alpha5-20231211.14" />
+		<PackageReference Include="Firely.Fhir.Validation.R4" Version="1.2.0-alpha5-20231211.14" />
+		<PackageReference Include="Hl7.Fhir.R4" Version="5.4.1-20231211.2" />
+		<PackageReference Include="Hl7.Fhir.Conformance" Version="5.4.1-20231211.2" />
 	</ItemGroup>
 	
 	<ItemGroup>
