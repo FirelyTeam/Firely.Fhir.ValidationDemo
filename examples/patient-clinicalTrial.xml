@@ -1,0 +1,131 @@
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="patient-clinicalTrial" />
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="pa" />
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="1" />
+  </extension>
+  <url value="http://hl7.org/fhir/StructureDefinition/patient-clinicalTrial" />
+  <name value="clinicalTrial" />
+  <title value="clinicalTrial" />
+  <status value="draft" />
+  <publisher value="HL7" />
+  <description value="The clinical trials this patient has or is participating in." />
+  <fhirVersion value="4.0.1" />
+  <mapping>
+    <identity value="rim" />
+    <uri value="http://hl7.org/v3" />
+    <name value="RIM Mapping" />
+  </mapping>
+  <kind value="complex-type" />
+  <abstract value="false" />
+  <type value="Extension" />
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Extension" />
+  <derivation value="constraint" />
+  <differential>
+    <element id="Extension">
+      <path value="Extension" />
+      <short value="The patient's participation in clinical trials" />
+      <definition value="The clinical trials this patient has or is participating in." />
+      <min value="0" />
+      <max value="*" />
+    </element>
+    <element id="Extension.extension:nct">
+      <path value="Extension.extension" />
+      <sliceName value="NCT" />
+      <short value="National Clinical Trial number" />
+      <definition value="The National Clinical Trial number. The format for the US ClinicalTrials.gov registry number is &quot;NCT&quot; followed by an 8-digit number, e.g.: NCT00000419." />
+      <min value="1" />
+      <max value="1" />
+      <type>
+        <code value="Extension" />
+      </type>
+    </element>
+    <element id="Extension.extension:nct.extension">
+      <path value="Extension.extension.extension" />
+      <max value="0" />
+    </element>
+    <element id="Extension.extension:nct.url">
+      <path value="Extension.extension.url" />
+      <type>
+        <code value="uri" />
+      </type>
+      <fixedUri value="NCT" />
+    </element>
+    <element id="Extension.extension:nct.valueString">
+      <path value="Extension.extension.valueString" />
+      <type>
+        <code value="string" />
+      </type>
+    </element>
+    <element id="Extension.extension:period">
+      <path value="Extension.extension" />
+      <sliceName value="period" />
+      <short value="The period of participation in the clinical trial" />
+      <definition value="The start and end times of the participation of this patient in the clinical trial." />
+      <min value="0" />
+      <max value="1" />
+      <type>
+        <code value="Extension" />
+      </type>
+    </element>
+    <element id="Extension.extension:period.extension">
+      <path value="Extension.extension.extension" />
+      <max value="0" />
+    </element>
+    <element id="Extension.extension:period.url">
+      <path value="Extension.extension.url" />
+      <type>
+        <code value="uri" />
+      </type>
+      <fixedUri value="period" />
+    </element>
+    <element id="Extension.extension:period.valuePeriod">
+      <path value="Extension.extension.valuePeriod" />
+      <type>
+        <code value="Period" />
+      </type>
+    </element>
+    <element id="Extension.extension:reason">
+      <path value="Extension.extension" />
+      <sliceName value="reason" />
+      <short value="The reason for participation in the clinical trial" />
+      <definition value="The indication or reason the patient is part of this trial." />
+      <min value="0" />
+      <max value="1" />
+      <type>
+        <code value="Extension" />
+      </type>
+    </element>
+    <element id="Extension.extension:reason.extension">
+      <path value="Extension.extension.extension" />
+      <max value="0" />
+    </element>
+    <element id="Extension.extension:reason.url">
+      <path value="Extension.extension.url" />
+      <type>
+        <code value="uri" />
+      </type>
+      <fixedUri value="reason" />
+    </element>
+    <element id="Extension.extension:reason.valueCodeableConcept">
+      <path value="Extension.extension.valueCodeableConcept" />
+      <type>
+        <code value="CodeableConcept" />
+      </type>
+    </element>
+    <element id="Extension.url">
+      <path value="Extension.url" />
+      <type>
+        <code value="uri" />
+      </type>
+      <fixedUri value="http://hl7.org/fhir/StructureDefinition/patient-clinicalTrial" />
+    </element>
+    <element id="Extension.value[x]">
+      <path value="Extension.value[x]" />
+      <min value="0" />
+      <max value="0" />
+    </element>
+  </differential>
+</StructureDefinition>

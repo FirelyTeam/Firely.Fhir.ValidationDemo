@@ -38,6 +38,7 @@ Each of these resources declare their conformance to one of the profiles defined
     * It must be of type "document"
     * It cannot have a total or link.
     * There must be at least one entry.
+* `patient-clinicalTrial.xml` - an extension used by the patient resource.
 
 
 

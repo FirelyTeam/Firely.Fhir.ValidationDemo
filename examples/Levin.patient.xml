@@ -11,7 +11,7 @@
             <p>MRN: 123456. Male, 24-Sept 1932</p>
         </div>
     </text>
-    <extension url="http://hl7.org/fhir/StructureDefinition/birthPlace">
+    <extension url="http://hl7.org/fhir/StructureDefinition/patient-birthPlace">
         <valueAddress>
             <text value="1 Back Lane&#13;&#10;Holmfirth&#13;&#10;HUDDERSFIELD&#13;&#10;HD7 1HQ"/>
             <line value="1 Back Lane"/>
