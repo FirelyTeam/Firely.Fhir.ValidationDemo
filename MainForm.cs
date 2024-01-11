@@ -43,6 +43,7 @@ namespace Furore.Fhir.ValidationDemo
 
         private readonly IAsyncResourceResolver _coreSource;
         private Validator? _validator;
+        private readonly ValidationSettings _validationSettings = new ValidationSettings();
 
         private readonly SettingsForm _settingsForm;
 
@@ -74,13 +75,12 @@ namespace Furore.Fhir.ValidationDemo
             var externalReferenceResolver = GetProfileDirectory() is { } pd ?
                 new FileBasedExternalReferenceResolver(pd) : null;
 
-            return new Validator(profileSource, terminologySource, externalReferenceResolver);
+            return new Validator(profileSource, terminologySource, externalReferenceResolver, _validationSettings);
         }
 
         private static DirectoryInfo? GetProfileDirectory() => !string.IsNullOrEmpty(Settings.Default.ProfileSourceDirectory)
                 ? new DirectoryInfo(Settings.Default.ProfileSourceDirectory)
                 : null;
-
 
         private OperationOutcome? _lastOutcome;
 
@@ -158,10 +158,7 @@ namespace Furore.Fhir.ValidationDemo
             {
                 SaveSettings();
 
-                // Configure the validator based on the user's settings
-                // This includes a reference to the resolver that we have constructed in previous methods
-                // and which helps the validator to look for profiles
-                _validator!.SkipConstraintValidation = Settings.Default.DisableFP;
+                _validationSettings.SetSkipConstraintValidation(Settings.Default.DisableFP);
 
                 var poco = InstanceFormat switch
                 {
@@ -171,7 +168,7 @@ namespace Furore.Fhir.ValidationDemo
                 };
 
                 var sw = Stopwatch.StartNew();
-                var result = _validator.Validate(poco);
+                var result = _validator!.Validate(poco);
                 sw.Stop();
 
                 // The validator generates an OperationOutcome as output;                
