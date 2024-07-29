@@ -29,7 +29,7 @@
 		<PackageReference Include="Firely.Fhir.Validation" Version="2.3.0" />
 		<PackageReference Include="Firely.Fhir.Validation.R4" Version="2.3.0" />
 		<PackageReference Include="Hl7.Fhir.R4" Version="5.8.1" />
-		<PackageReference Include="Hl7.Fhir.Conformance" Version="5.8.1" />
+		<PackageReference Include="Hl7.Fhir.Conformance" Version="5.9.0" />
 	</ItemGroup>
 	
 	<ItemGroup>
