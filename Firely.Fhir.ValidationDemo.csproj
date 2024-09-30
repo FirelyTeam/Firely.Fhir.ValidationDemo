@@ -25,7 +25,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="Firely.Fhir.Packages" Version="4.7.0" />
+		<PackageReference Include="Firely.Fhir.Packages" Version="4.8.0" />
 		<PackageReference Include="Firely.Fhir.Validation" Version="2.4.0" />
 		<PackageReference Include="Firely.Fhir.Validation.R4" Version="2.4.0" />
 		<PackageReference Include="Hl7.Fhir.R4" Version="5.9.1" />
